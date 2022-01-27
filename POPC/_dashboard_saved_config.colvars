@@ -1,12 +1,15 @@
 # Current configuration of Colvars Module
 
+
+# New config string to be applied
+
 colvar {
     name Ligand
 
     # Insert one or several components below (see templates/components)
 
     distanceVec {
-        group1 {
+        group2 {
             # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
             # auto-updating selection: "noh and same residue as index 25334"
             atomNumbers 25311 25312 25315 25319 25323 25327 25330 25331 25332 25333 25334 25335 25338 25340 25341 25342 25343 25346 25349 25350 25351 25352 25355 25358 25361 25364 25367 25370 25373 25375 25377 25380 25383 25386 25389 25392 25395 25398 25402 25405 25408 25411 25414 25417 25420 25423 25426 25429 25432 25435 25438 25441
@@ -31,7 +34,7 @@ colvar {
             refPositionsFile ./rest_ref.popc_glycerol_10Av3.pdb
         }
 
-        group2 {
+        group1 {
                 dummyAtom (0, 0, 0)
         }
     }
@@ -43,7 +46,7 @@ colvar {
     # Insert one or several components below (see templates/components)
 
     distanceVec {
-        group1 {
+        group2 {
 
             # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
             # auto-updating selection: "noh and same residue as index 26543"
@@ -69,7 +72,7 @@ colvar {
             refPositionsFile ./rest_ref.popc_glycerol_10Av3.pdb
         }
 
-        group2 {
+        group1 {
                 dummyAtom (0, 0, 0)
         }
     }
@@ -81,7 +84,7 @@ colvar {
     # Insert one or several components below (see templates/components)
 
     distanceVec {
-        group1 {
+        group2 {
             # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
             # auto-updating selection: "noh and same residue as index 25601"
             atomNumbers 25579 25580 25583 25587 25591 25595 25598 25599 25600 25601 25602 25603 25606 25608 25609 25610 25611 25614 25617 25618 25619 25620 25623 25626 25629 25632 25635 25638 25641 25643 25645 25648 25651 25654 25657 25660 25663 25666 25670 25673 25676 25679 25682 25685 25688 25691 25694 25697 25700 25703 25706 25709
@@ -105,7 +108,7 @@ colvar {
             refPositionsFile ./rest_ref.popc_glycerol_10Av3.pdb
         }
 
-        group2 {
+        group1 {
                 dummyAtom (0, 0, 0)
         }
     }
@@ -117,7 +120,7 @@ colvar {
     # Insert one or several components below (see templates/components)
 
     distanceVec {
-        group1 {
+        group2 {
             # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
             # auto-updating selection: "noh and same residue as index 27749"
             atomNumbers 27723 27724 27727 27731 27735 27739 27742 27743 27744 27745 27746 27747 27750 27752 27753 27754 27755 27758 27761 27762 27763 27764 27767 27770 27773 27776 27779 27782 27785 27787 27789 27792 27795 27798 27801 27804 27807 27810 27814 27817 27820 27823 27826 27829 27832 27835 27838 27841 27844 27847 27850 27853
@@ -141,14 +144,11 @@ colvar {
             refPositionsFile ./rest_ref.popc_glycerol_10Av3.pdb
         }
 
-        group2 {
+        group1 {
                 dummyAtom (0, 0, 0)
         }
     }
 }
-
-
-# New config string to be applied
 
 colvar {
     name BobC
@@ -156,7 +156,7 @@ colvar {
     # Insert one or several components below (see templates/components)
 
     distanceVec {
-        group1 {
+        group2 {
             # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
             # auto-updating selection: "noh and same residue as index 26010"
             atomNumbers 25981 25982 25985 25989 25993 25997 26000 26001 26002 26003 26004 26005 26008 26010 26011 26012 26013 26016 26019 26020 26021 26022 26025 26028 26031 26034 26037 26040 26043 26045 26047 26050 26053 26056 26059 26062 26065 26068 26072 26075 26078 26081 26084 26087 26090 26093 26096 26099 26102 26105 26108 26111
@@ -181,7 +181,7 @@ colvar {
             refPositionsFile ./rest_ref.popc_glycerol_10Av3.pdb
         }
 
-        group2 {
+        group1 {
                 dummyAtom (0, 0, 0)
         }
     }
