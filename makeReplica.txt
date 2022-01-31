@@ -1,0 +1,7 @@
+jobid: 4364727700
+run dehydrate.tcl
+upload to charmm gui membrane builder. Use defaults, except where noted:
+Termini: PROP, CTER
+Box dimensions: 98.25A (yields 200 lipids total)
+hydration number: 155
+
