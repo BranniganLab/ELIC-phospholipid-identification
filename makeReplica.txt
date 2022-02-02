@@ -5,3 +5,5 @@ Termini: PROP, CTER
 Box dimensions: 98.25A (yields 200 lipids total)
 hydration number: 155
 
+WYF parameters for cation-pi interactions
+

@@ -1,0 +1,67 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+#Large files
+*.dcd
+*.log
+*.namd
+*.err
+slurm*
+Trash
+*.fepout
+
+
+  
+#This is intended as a general purpose .gitignore file that can be added to any general (MD) repository to ignore large files (logs, trajectories, etc.)
+#General log files
+*.log
+*.err
+*.out
+*slurm*
+Trash # Most unix systems lack a "trashcan". Use "git rm --cached undesired.txt" then move undesired files here.
+
+
+#NAMD trajectories and logs. !restart files are NOT ignored!
+*.dcd*
+*.old
+
+#NAMD Free Energy Perturbation outputs
+*.fepout
+*.fep #If you use .fep for your beta file, either remove this and rename your outputs to fepout or use "git add -f my_alchs.fep"
+
+#GROMACS
