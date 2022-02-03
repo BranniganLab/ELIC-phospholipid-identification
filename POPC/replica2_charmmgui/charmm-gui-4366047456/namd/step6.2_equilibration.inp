@@ -55,10 +55,10 @@ pairlistsPerCycle       2;                  # 2 is the default
                                             # this means every 20/2=10 steps the pairlist will be updated
 
 # Integrator Parameters
-timestep                2.0;                # fs/step
+timestep                1.0;                # fs/step
 rigidBonds              all;                # Bound constraint all bonds involving H are fixed in length
-nonbondedFreq           2;                  # nonbonded forces every step
-fullElectFrequency      2;                  # PME every step
+nonbondedFreq           1;                  # nonbonded forces every step
+fullElectFrequency      1;                  # PME every step
 
 # Constant Temperature Control ONLY DURING EQUILB
 reassignFreq            500;                # reassignFreq:  use this to reassign velocity every 500 steps
