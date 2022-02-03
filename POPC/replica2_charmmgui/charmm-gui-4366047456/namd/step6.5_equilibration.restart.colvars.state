@@ -1,29 +1,29 @@
 configuration {
-  step       635000
+  step       740100
   dt 2.000000e+00
   version 2020-07-07
 }
 
 colvar {
   name popc_head_upper
-  x  2.04796145450726e+01
+  x  2.01253724015265e+01
 }
 
 colvar {
   name popc_head_lower
-  x -1.98316252605058e+01
+  x -1.98840105924204e+01
 }
 
 restraint {
   configuration {
-    step 635000
+    step 740100
     name harmonic1
   }
 }
 
 restraint {
   configuration {
-    step 635000
+    step 740100
     name harmonic2
   }
 }
