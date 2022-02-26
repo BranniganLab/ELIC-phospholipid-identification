@@ -61,11 +61,9 @@ fullElectFrequency      2;                  # PME every step
 
 wrapWater               on;                 # wrap water to central cell
 wrapAll                 on;                 # wrap other molecules too
-if { $boxtype == "hexa" } {
-wrapNearest             on;                 # use for non-rectangular cells (wrap to the nearest image)
-} else {
+
 wrapNearest             off;                # use for non-rectangular cells (wrap to the nearest image)
-}
+
 
 # PME (for full-system periodic electrostatics)
 PME                     yes;
@@ -80,9 +78,9 @@ useConstantRatio        yes;                # keeps the ratio of the unit cell i
 
 langevinPiston          on;                 # Nose-Hoover Langevin piston pressure control
 langevinPistonTarget    1.01325;            # target pressure in bar 1atm = 1.01325bar 
-langevinPistonPeriod    50.0;               # oscillation period in fs. correspond to pgamma T=50fs=0.05ps 
+langevinPistonPeriod    200.0;               # oscillation period in fs. correspond to pgamma T=50fs=0.05ps 
                                             # f=1/T=20.0(pgamma)
-langevinPistonDecay     25.0;               # oscillation decay time. smaller value correspons to larger random
+langevinPistonDecay     100.0;               # oscillation decay time. smaller value correspons to larger random
                                             # forces and increased coupling to the Langevin temp bath.
                                             # Equall or smaller than piston period
 langevinPistonTemp      $temp;              # coupled to heat bath
@@ -93,6 +91,6 @@ langevinDamping         1.0;                # damping coefficient of 1/ps (keep 
 langevinTemp            $temp;              # random noise at this level
 langevinHydrogen        off;                # don't couple bath to hydrogens
 # run
-numsteps                500000;             # run stops when this step is reached
-run                     500000;             # 1ns
+numsteps                5000000;             # run stops when this step is reached
+run                     5000000;             # 10ns
 
