@@ -1,0 +1,78 @@
+configuration {
+  step      1135000
+  dt 2.000000e+00
+  version 2020-02-27
+}
+
+colvar {
+  name popc_head_upper
+  x  2.30368784402124e+01
+}
+
+colvar {
+  name pope_head_upper
+  x  2.19995795807157e+01
+}
+
+colvar {
+  name popg_head_upper
+  x  2.20820567750483e+01
+}
+
+colvar {
+  name popc_head_lower
+  x -1.84556704967702e+01
+}
+
+colvar {
+  name pope_head_lower
+  x -1.78710352878623e+01
+}
+
+colvar {
+  name popg_head_lower
+  x -1.77794103853271e+01
+}
+
+restraint {
+  configuration {
+    step 1135000
+    name harmonic1
+  }
+}
+
+restraint {
+  configuration {
+    step 1135000
+    name harmonic2
+  }
+}
+
+restraint {
+  configuration {
+    step 1135000
+    name harmonic3
+  }
+}
+
+restraint {
+  configuration {
+    step 1135000
+    name harmonic4
+  }
+}
+
+restraint {
+  configuration {
+    step 1135000
+    name harmonic5
+  }
+}
+
+restraint {
+  configuration {
+    step 1135000
+    name harmonic6
+  }
+}
+

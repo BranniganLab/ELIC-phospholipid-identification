@@ -1,0 +1,23 @@
+colvar {
+    name headgroup_z
+
+    distanceZ {
+        main {
+            # C1 in hybrid molecule. Note this will be different for each system!
+            atomNumbers 33
+        }
+        ref {
+            # This is a C1 on the other leaflet
+            atomNumbers 9391
+        }
+    }
+}
+
+harmonicWalls {
+    name glycerol_head_walls
+    colvars headgroup_z
+    # These boundaries make sense for a 2-1-1 PC-PE-PG membrane
+    lowerwalls 25.0
+    upperwalls 35.0
+    forceconstant 4.0
+}

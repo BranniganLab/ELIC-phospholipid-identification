@@ -1,0 +1,54 @@
+colvar {
+    name headgroup_z
+
+    distanceZ {
+        main {
+            # C1 in hybrid molecule. Note this will be different for each system!
+            atomNumbers 167
+        }
+        ref {
+            # This is a C1 on the other leaflet
+            atomNumbers 7833
+        }
+    }
+}
+
+harmonicWalls {
+    name glycerol_head_walls
+    colvars headgroup_z
+    # These boundaries make sense for a 2-1-1 PC-PE-PG membrane
+    lowerwalls 25.0
+    upperwalls 35.0
+    forceconstant 4.0
+}
+
+colvar {
+    name strat2
+
+    # Insert one or several components below (see templates/components)
+
+    distanceZ {
+        main {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "resname POCG and name P PM"
+            atomNumbers 145 162
+
+        }
+        ref {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "resname POCG and name O22 O32"
+            atomNumbers 174 183
+
+        }
+    }
+}
+
+
+harmonicWalls {
+    name antiflip
+    colvars strat2
+    #
+    lowerwalls 1
+    upperwalls 35.0
+    forceconstant 4.0
+}
