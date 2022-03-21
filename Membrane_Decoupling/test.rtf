@@ -1,0 +1,52 @@
+
+PRES POCE   -0.1
+GROUP
+
+ATOM    HN1M HCL       0.33
+ATOM    HN2M HCL       0.33
+ATOM    HN3M HCL       0.33
+ATOM    NM   NH3L      -0.3
+ATOM    H12V HAL2      0.09
+ATOM    C12M CTL2      0.13
+ATOM    H12W HAL2      0.09
+ATOM    H11W HAL2      0.09
+ATOM    C11M CTL2     -0.08
+ATOM    H11V HAL2      0.09
+ATOM    O12M OSLP     -0.57
+ATOM    PM   PL         1.5
+ATOM    O14M O2L      -0.78
+ATOM    O13M O2L      -0.78
+ATOM    O11M OSLP     -0.57
+
+BOND     NM HN1M
+BOND     NM HN2M
+BOND     NM HN3M
+BOND     NM C12M
+BOND   C12M H12W
+BOND   C12M H12V
+BOND   C12M C11M
+BOND   C11M H11W
+BOND   C11M H11V
+BOND   C11M O12M
+BOND   O12M   PM
+BOND     PM O11M
+BOND     PM O13M
+BOND     PM O14M
+BOND     C1 O11M
+IC NM     C12M   C11M   O12M   1.5078    68.79     110.33    1.4254    
+IC C11M   NM     *C12   H12W   1.5400    -122.33   108.17    1.1079    
+IC H12W   NM     *C12   H12V   1.1079    -118.40   107.74    1.1112    
+IC C11M   C12M   NM     HN1M   1.5400    -35.27    106.06    1.0664    
+IC HN1M   C12M   *N     HN2M   1.0664    114.05    112.10    1.0358    
+IC HN1M   C12M   *N     HN3M   1.0664    -118.21   113.62    1.0353    
+IC O12M   C12M   *C11   H11W   1.4254    -126.01   111.43    1.1173    
+IC H11W   C12M   *C11   H11V   1.1173    -116.40   108.25    1.1146    
+IC C12M   C11M   O12M   PM     1.5400    -98.67    122.01    1.5838    
+IC C11M   O12M   PM     O11M   1.4254    175.28    101.96    1.5733    
+IC O11M   O12M   *P     O13M   1.5733    118.35    108.16    1.4702    
+IC O11M   O12M   *P     O14M   1.5733    -114.83   104.73    1.4823    
+IC O12M   PM     O11M   C1     1.5838    61.31     122.26    1.4287    
+IC PM     O11M   C1     C2     1.5733    -120.45   111.00    1.5491    
+IC C2     O11M   *C1    HA     1.5491    -118.16   108.31    1.1134    
+IC HA     O11M   *C1    HB     1.1134    -118.72   113.73    1.1170    
+IC O11M   C1     C2     O21    1.4287    -170.08   107.01    1.4406    
