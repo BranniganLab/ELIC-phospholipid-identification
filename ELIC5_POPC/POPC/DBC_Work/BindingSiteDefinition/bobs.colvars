@@ -1,0 +1,135 @@
+colvar {
+    name Ligand
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "noh and same residue as index 25334"
+            atomNumbers 25311 25312 25315 25319 25323 25327 25330 25331 25332 25333 25334 25335 25338 25340 25341 25342 25343 25346 25349 25350 25351 25352 25355 25358 25361 25364 25367 25370 25373 25375 25377 25380 25383 25386 25389 25392 25395 25398 25402 25405 25408 25411 25414 25417 25420 25423 25426 25429 25432 25435 25438 25441
+
+
+            centerToOrigin
+            centerToReference
+            fittingGroup {
+                # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+                # auto-updating selection: "name CA and resid 251 252 253 254 255 256 257 258 261 192 193 194 195 196 197 199 200 201 and within 15 of (index 25337)"
+                atomNumbers 4022 4034 4055 4069 4083 4123 4135 4188 4207 23360 23371 23413 23432 23456
+            }
+            refPositionsFile ./rest_ref.popc_glycerol_10Av3.pdb
+        }
+
+        group2 {
+                dummyAtom (0, 0, 0)
+        }
+    }
+}
+
+colvar {
+    name BobB
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "noh and same residue as index 26543"
+            
+
+            centerToOrigin
+            centerToReference
+            fittingGroup {
+                # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+                # auto-updating selection: "name CA and resid 251 252 253 254 255 256 257 258 261 192 193 194 195 196 197 199 200 201 and within 15 of (index 26543)"
+                
+				}
+            refPositionsFile ./rest_ref.popc_glycerol_10Av3.pdb
+        }
+
+        group2 {
+                dummyAtom (0, 0, 0)
+        }
+    }
+}
+
+colvar {
+    name BobC
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "noh and same residue as index 26010"
+            
+
+            centerToOrigin
+            centerToReference
+            fittingGroup {
+                # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+                # auto-updating selection: "name CA and resid 251 252 253 254 255 256 257 258 261 192 193 194 195 196 197 199 200 201 and within 15 of (index 26007)"
+                
+				}
+            refPositionsFile ./rest_ref.popc_glycerol_10Av3.pdb
+        }
+
+        group2 {
+                dummyAtom (0, 0, 0)
+        }
+    }
+}
+
+colvar {
+    name BobD
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "noh and same residue as index 25601"
+            
+
+            centerToOrigin
+            centerToReference
+            fittingGroup {
+                # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+                # auto-updating selection: "name CA and resid 251 252 253 254 255 256 257 258 261 192 193 194 195 196 197 199 200 201 and within 15 of (index 25605)"
+                
+				}
+            refPositionsFile ./rest_ref.popc_glycerol_10Av3.pdb
+        }
+
+        group2 {
+                dummyAtom (0, 0, 0)
+        }
+    }
+}
+
+colvar {
+    name BobE
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "noh and same residue as index 27749"
+            
+
+            centerToOrigin
+            centerToReference
+            fittingGroup {
+                # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+                # auto-updating selection: "name CA and resid 251 252 253 254 255 256 257 258 261 192 193 194 195 196 197 199 200 201 and within 15 of (index 27749)"
+                
+				}
+            refPositionsFile ./rest_ref.popc_glycerol_10Av3.pdb
+        }
+
+        group2 {
+                dummyAtom (0, 0, 0)
+        }
+    }
+}
