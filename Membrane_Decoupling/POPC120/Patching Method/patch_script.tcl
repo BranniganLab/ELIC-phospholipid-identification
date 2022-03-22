@@ -7,7 +7,7 @@ mol delete all
 resetpsf
 psfcontext reset
 
-topology ../toppar/top_all36_lipid.rtf
+topology ../../../toppar/top_all36_lipid.rtf
 topology test.rtf
 
 

@@ -1,12 +1,23 @@
-set keep [atomselect top "(protein and resid 308 and segname PROA) or (resname POEG and name H3AM H3BM C13M OC3M HO3M H2AM C12M OC2M HO2M H1AM C11M H1BM O13M O12M PM O14M O11M)"]
+proc extractPair {seltext1 seltext2 oName} {
+	#set keep [atomselect top "(protein and resid 308 and segname PROA) or (resname POEG and beta 0 1)"]
+	set keep [atomselect top "($seltext1) or ($seltext2)"]
 
-animate write dcd PGandARG.dcd sel $keep top
+	animate write dcd $oName.dcd sel $keep top
 
-set sellist {}
-lappend sellist $keep
-::TopoTools::selections2mol $sellist
+	set sellist {}
+	lappend sellist $keep
+	::TopoTools::selections2mol $sellist
 
-animate write psf PGandARG.psf
+	animate write psf $oName.psf
 
-mol new PGandARG.psf
-mol addfile PGandARG.dcd
+	mol new $oName.psf
+	mol addfile $oName.dcd
+}
+
+proc getPairEnergies {seltext1 seltext2 oName} {
+	set sel1 [atomselect top $seltext1]
+	set sel2 [atomselect top $seltext2]
+	
+	namdenergy -sel $sel1 $sel2 -vdw -elec -nonb -ofile $oName -par ~/toppar/par_all36_carb.prm -par ~/toppar/par_all36_cgenff.prm -par ~/toppar/par_all36_lipid.prm -par ~/toppar/par_all36m_prot.prm
+
+}
