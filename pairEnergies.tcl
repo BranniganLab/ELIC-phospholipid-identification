@@ -19,7 +19,7 @@ proc getPairEnergies {seltext1 seltext2 oName} {
 
 }
 
-proc doProcess {POXY PXtoPY midfix postfix seg id PX} {
+proc doProcess {POXY PXtoPY midfix postfix seg id PX alch} {
 	set rname [string toupper $POXY]
 	mol load psf prod$POXY.psf pdb starting.$POXY.fep
 	mol addfile $PXtoPY$midfix$postfix.dcd waitfor all
@@ -27,7 +27,7 @@ proc doProcess {POXY PXtoPY midfix postfix seg id PX} {
 	mol rename top "$rname.$PX"
 	
 	set oName "$rname.$PX.$id"
-	extractPair "resname $rname and beta 0 '-1'" "segname $seg and resid $id" $oName
+	extractPair "resname $rname and beta 0 $alch" "segname $seg and resid $id" $oName
 	mol new $oName.psf
 	mol addfile $oName.dcd waitfor all
 	
