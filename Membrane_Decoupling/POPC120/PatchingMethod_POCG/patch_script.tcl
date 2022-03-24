@@ -8,7 +8,7 @@ resetpsf
 psfcontext reset
 
 topology ../../../toppar/top_all36_lipid.rtf
-topology POPC_to_POCE.rtf
+topology POPC_to_POCG.rtf
 
 
 proc mutateResidue {the_resid patchName prefixin prefixout} {
