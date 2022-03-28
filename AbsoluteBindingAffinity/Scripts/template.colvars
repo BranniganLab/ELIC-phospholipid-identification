@@ -1,0 +1,20 @@
+colvar {
+    name dVecTEMPLATE
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid TEMPLATE and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
