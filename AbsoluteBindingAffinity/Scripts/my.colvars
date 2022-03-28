@@ -1,0 +1,609 @@
+colvar {
+    name dVec3
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 3 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec5
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 5 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec8
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 8 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec13
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 13 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec16
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 16 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec18
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 18 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec20
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 20 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec26
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 26 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec37
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 37 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec40
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 40 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec46
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 46 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec64
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 64 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec76
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 76 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec77
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 77 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec97
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 97 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec98
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 98 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec106
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 106 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec109
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 109 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec110
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 110 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec116
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 116 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec117
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 117 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec123
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 123 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec131
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 131 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec132
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 132 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec140
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 140 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec159
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 159 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec162
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 162 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec169
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 169 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
+colvar {
+    name dVec174
+
+    # Insert one or several components below (see templates/components)
+
+    distanceVec {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "lipid and resid 174 and noh"
+            atomNumbers 5331 
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name CA and within 12 of resid 249"
+            atomNumbers 1666 
+		}
+    }
+}
+
+
+
