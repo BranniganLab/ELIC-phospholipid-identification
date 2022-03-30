@@ -1,4 +1,3 @@
-units real
 
 colvar {
     name zrestraint
@@ -9,14 +8,14 @@ colvar {
     forceNoPbc yes
         main {
             # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
-            # auto-updating selection: "noh and resname POPC and resid 27 and name C1"
-            atomNumbers 286
+            # auto-updating selection: "noh and segname MEMB and resid 27 and name C1"
+            atomNumbers 3482
 
         }
         ref {
             # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
             # auto-updating selection: "noh and resname POPC and resid 63 and name C1"
-            atomNumbers 8228
+            atomNumbers 8243
 
         }
     }

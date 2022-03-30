@@ -3,12 +3,11 @@
 #SBATCH -o out%j.amarel.log
 #SBATCH --export=ALL
 #SBATCH --partition=cmain
-##SBATCH -N 3 -n 96
-#SBATCH -N 1 -n 32
+#SBATCH -N 3 -n 96
+##SBATCH -N 1 -n 32
 #SBATCH --mem=6000
 #SBATCH -t 00:30:00       # max time
-#SBATCH --output=slurm_test.out     # STDOUT output file
-#SBATCH --error=slurm_test.err      # STDERR output file (optional)
+#SBATCH --output=starting.out     # STDOUT output file
 #SBATCH --requeue
 module purge
 module load gcc cuda mvapich2/2.2

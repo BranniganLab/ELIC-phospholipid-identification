@@ -52,5 +52,9 @@ echo "cv_dashboard" >> $fout
 #Execute the tcl script
 #vmd -dispdev none -e $fout
 vmd -e $fout
+
+#Cleanup and organize
+tail -n +2 ./$affix/zrestraint.$affix.colvars > ./$affix/temp.colvars
+mv ./$affix/temp.colvars ./$affix/zrestraint.$affix.colvars
 mv $pref* ./$affix
 

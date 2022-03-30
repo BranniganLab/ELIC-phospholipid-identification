@@ -1,4 +1,3 @@
-units real
 
 colvar {
     name zrestraint
@@ -23,8 +22,6 @@ colvar {
 }
 
 harmonicwalls {
-    name harmonicwalls1
-
     colvars        zrestraint
     lowerWalls     28.5
     upperWalls     41.5

@@ -1,11 +1,29 @@
-# Procedure for patching and generating a new replica:
-- Open the system in vmd
-- Using colvars, measure the distance between the C1 carbons of the lipid to be patched and a lipid on the opposite leaflet.
-- Identify the mean and width of that distribution
-- Create a harmonic walls restraint that keeps the C1 carbon in the appropriate range.
-- Set the upper and lower walls to include ~95% to 99% of the distribution (typically mean +/- 6A)
-- Save these as zrestraint.PO[XY].colvars
-- Update the prefixes in the do_run script, the relentlessFEP config file (config*.yaml), and the namd  config file. 
-- Use mutateResidue and doAlch found in CHARMMformatics/VMD_scripts/patch_script.tcl to generate the input files
-- MAKE SURE ALL "prefix" variables match exactly
-- Generate initial conditions by minimizing and relaxing the initial conditions for a few thousand steps. A long equilibration should not be necessary for sufficiently small alchemical transformations and reasonable internal coordinates.
+# Internal Procedure for making and running FEP
+# Procedure for setting up the overall system:
+- Build the system using standard methods (CHARMM GUI)
+- Equilibrate the system using "normal" topologies
+- Select and generate the dual-topology patches as needed
+- Extend makeAlchemy to handle your patches (first if statement)
+- Load your system and trajectory into vmd
+- Save the last frame (or last restart coor) as PREFIX.pdb. 
+- Rename your psf file to PREFIX.psf.
+- Analyze your equilibrium run for the distribution of whatever restraint(s) you may need.
+- Create an appropriate restraint template in the TEMPLATE directory
+
+# Procedure for patching and generating a new replica: 
+## Generating the input files
+- Open the initial configuration in vmd and select the residue to be mutated. Close vmd.
+- Run makeAlchemy.sh like so: >> ./makeAlchemy.sh [resid] [patch] [PREFIX]
+- The script will open vmd and and the colvars dashboard.
+- Open the draft restraint which you'll find in ./[patch]_[resid]/[something].[patch]_[restraint].colvars 
+- Confirm that the colvar refers to the correct atom (autoselections will not update unless you complete this step)
+- Over-write the config file with the one in vmd (this updates the atomselections)
+- Close vmd
+- The script will do a little cleanup and end.
+
+## Running FEP
+- IF you have good internal coordinates you should be able to use the provided starting namd config file. This will run a few steps of minimization and equilibration just to relax the incoming atoms. If your system is unstable, you may need additional minimization/equilibration.
+- Check starting...namd to make sure things like the topology directory is correct
+- Upload the new directory to an appropriate location on Amarel
+- Run "sbatch runEQ.sh" which will run starting...namd
+- Run "bash do_run_....sh". The do_run relies on relentless_FEP by Tom Joseph. It's available on Amarel.
