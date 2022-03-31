@@ -1,5 +1,5 @@
 #!/bin/bash 
-#SBATCH -J EQ_SHORTNAME
+#SBATCH -J EQ_TEMPLATE
 #SBATCH -o out%j.amarel.log
 #SBATCH --export=ALL
 #SBATCH --partition=cmain
