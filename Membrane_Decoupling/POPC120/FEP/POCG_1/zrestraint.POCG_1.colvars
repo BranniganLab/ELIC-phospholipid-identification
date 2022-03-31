@@ -10,13 +10,13 @@ colvar {
         main {
             # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
             # auto-updating selection: "noh and segname MEMB and resid 1 and name C1"
-            atomNumbers 286
+            atomNumbers 42
 
         }
         ref {
             # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
             # auto-updating selection: "noh and resname POPC and resid 63 and name C1"
-            atomNumbers 8228
+            atomNumbers 8350
 
         }
     }
@@ -28,5 +28,6 @@ harmonicwalls {
     upperWalls     41.5
     forceConstant  4.0
 }
+
 
 
