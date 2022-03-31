@@ -21,6 +21,7 @@
 - Over-write the config file with the one in vmd (this updates the atomselections)
 - Close vmd
 - The script will do a little cleanup and end.
+- All necessary files will be found in ./[patch]_[resid]
 
 ## Running FEP
 - IF you have good internal coordinates you should be able to use the provided starting namd config file. This will run a few steps of minimization and equilibration just to relax the incoming atoms. If your system is unstable, you may need additional minimization/equilibration.
