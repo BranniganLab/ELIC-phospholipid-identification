@@ -1,4 +1,5 @@
 
+
 colvar {
     name zrestraint
 
@@ -9,13 +10,13 @@ colvar {
         main {
             # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
             # auto-updating selection: "noh and segname MEMB and resid 1 and name C1"
-            atomNumbers 42
+            atomNumbers 286
 
         }
         ref {
             # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
             # auto-updating selection: "noh and resname POPC and resid 63 and name C1"
-            atomNumbers 8350
+            atomNumbers 8228
 
         }
     }

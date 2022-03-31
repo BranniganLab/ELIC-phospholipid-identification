@@ -60,6 +60,17 @@ proc main {res patch prefixin prefixout namesOut commonPath} {
 	mol addrep top
 	
 	doAlch $patch $prefixout $namesOut
+	
+	set confFile "./${patch}_${res}/zrestraint.${patch}_${res}.colvars"
+	set in [open $confFile r]
+	set cfg [read -nonewline $in]
+	close $in
+	::cv_dashboard::substitute_atomselects $cfg
+	set out [open $confFile w]
+	puts $out $cfg
+	close $out
+	
+	
 }
 
 
