@@ -14,6 +14,8 @@ fout="$affix.tcl"
 
 if [ "$2" = "POCE" ] || [ "$2" = "POCG" ]; then
 	namesOut="C15 H15A H15B H15C C14 H14A H14B H14C C13 H13B H13A H13C N H12B C12 H12A H11B C11 H11A O12 P O14 O13 O11"
+elif [ "$2" = "POGE" ] || [ "$2" = "POGC" ]; then
+	namesOut="O11 P O13 O14 O12 C11 H11B H11A H12A C12 OC2 HO2 C13 H13A H13B OC3 HO3"
 else
 	echo "I don't know how to handle $2 yet."
 	exit 1
