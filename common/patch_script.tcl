@@ -18,6 +18,8 @@ proc mutateResidue {the_resid patchName prefixout} {
 	#do patch
 	patch $patchName MEMB:$the_resid
 	guesscoord
+	regenerate angles dihedrals
+	
 	writepsf $prefixout.psf
 	writepdb $prefixout.pdb
 }

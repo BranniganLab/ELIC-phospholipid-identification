@@ -49,7 +49,8 @@ echo "package require cv_dashboard" >> $fout
 #It would be nice to do this programmatically, but reading from the command line doesn't update autoselections
 #echo "cv configfile ./$affix/zrestraint.$affix.colvars" >> $fout
 echo "cv_dashboard" >> $fout
-
+echo "proc ::cv_dashboard::substitute_atomselects ./$affix/zrestraint.$affix.colvars" >> $fout
+echo "proc ::cv_dashboard::save" >> $fout
 #echo "exit" >> $fout
 
 #Execute the tcl script
