@@ -1,12 +1,43 @@
 package require topotools
-
+package require psfgen
 package require alchemify 
 
+proc cleanSlate {prefix commonPath keyRTF} {
+	mol delete all
+	resetpsf
+	psfcontext reset
 
+	topology $commonPath/toppar/top_all36_lipid.rtf
+	topology $commonPath/POPC_to_POCE.rtf
+	topology $commonPath/POPC_to_POCG.rtf
+	topology $commonPath/POPG_to_POGE.rtf
+	catch {topology $commonPath/$keyRTF} 	
+	mol load psf $prefix.psf pdb $prefix.pdb
+	
+	readpsf $prefix.psf
+	coordpdb $prefix.pdb
+}
+
+proc depatch {dualName depatchName prefixout} {
+	set debug 1
+	puts "Depatching top molecule resname $dualName..."
+	set sel [atomselect top "resname $dualName"]
+	if {$debug == 1 } {puts [$sel num]}
+	set sn [lindex [$sel get segname] 0]
+	if {$debug == 1 } {puts "Segname: $sn"}
+	set rid [lindex [$sel get resid] 0]
+	if {$debug == 1 } {puts "Resid: $rid"}
+	
+	patch $depatchName $sn:$rid
+	regenerate angles dihedrals
+	writepsf $prefixout.psf
+	writepdb $prefixout.pdb
+	puts "Files saved"
+}
 
 proc mutateResidue {the_resid patchName prefixout} {
 	set debug 1
-	package require psfgen
+	
 	#Rename the target lipid
 	if {$debug == 1 } {puts "Rename..."}
 	set sel [atomselect top "segname MEMB and resid $the_resid"]
@@ -53,17 +84,7 @@ proc doAlch {patchName prefixout namesOut} {
 
 proc main {res patch prefixin prefixout namesOut commonPath} {
 	set debug 1
-	#Clean slate
-	mol delete all
-	resetpsf
-	psfcontext reset
-
-	topology $commonPath/toppar/top_all36_lipid.rtf
-	topology $commonPath/POPC_to_POCE.rtf
-	topology $commonPath/POPC_to_POCG.rtf
-	topology $commonPath/POPG_to_POGE.rtf
-	
-	mol load psf $prefixin.psf pdb $prefixin.pdb
+	cleanSlate $prefixin $commonPath nan
 	
 	if {$debug == 1 } {puts "Mutate residue..."}
 	mutateResidue $res $patch $prefixout

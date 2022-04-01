@@ -29,3 +29,8 @@
 - Upload the new directory to an appropriate location on Amarel
 - Run "sbatch runEQ.sh" which will run starting...namd
 - Run "bash do_run_....sh". The do_run relies on relentless_FEP by Tom Joseph. It's available on Amarel.
+
+## Removing a headgroup for ABFE Calculations:
+- Get a psf and pdb of an appropriate state
+- Source depatch_script and run:
+- >> depatch [prefixin] [prefixout] [commonPath] [dualName] [depatchName] [rtf]
