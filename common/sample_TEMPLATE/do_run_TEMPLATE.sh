@@ -24,7 +24,7 @@ SCRIPT() { cat <<RAR
 #!/bin/bash
 #SBATCH -J ${JOB_NAME}_${chunk_start}_${chunk_end}
 #SBATCH -o out%j.amarel.log 
-#SBATCH --partition=cmain --constraint=oarc -t 18:00:00
+#SBATCH --partition=cmain --constraint=oarc -t 24:00:00
 ##SBATCH --partition p_jdb252_1
 ##SBATCH --partition p_ccib_1 --exclude=halc068,memc001
 ##SBATCH -t 00:03:00 
