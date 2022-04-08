@@ -18,7 +18,7 @@ proc cleanSlate {prefix commonPath keyRTF} {
 	coordpdb $prefix.pdb
 }
 
-proc depatch {dualName depatchName prefixout} {
+proc depatch {dualName depatchName prefixout monoName} {
 	set debug 1
 	puts "Depatching top molecule resname $dualName..."
 	set sel [atomselect top "resname $dualName"]
@@ -27,6 +27,7 @@ proc depatch {dualName depatchName prefixout} {
 	if {$debug == 1 } {puts "Segname: $sn"}
 	set rid [lindex [$sel get resid] 0]
 	if {$debug == 1 } {puts "Resid: $rid"}
+	$sel set resname $monoName
 	
 	patch $depatchName $sn:$rid
 	regenerate angles dihedrals

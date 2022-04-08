@@ -30,7 +30,11 @@
 - Run "sbatch runEQ.sh" which will run starting...namd
 - Run "bash do_run_....sh". The do_run relies on relentless_FEP by Tom Joseph. It's available on Amarel.
 
+# ABFE Calculations
 ## Removing a headgroup for ABFE Calculations:
 - Get a psf and pdb of an appropriate state
-- Source depatch_script and run:
-- >> depatch [prefixin] [prefixout] [commonPath] [dualName] [depatchName] [rtf]
+- Save them as parent/prefix/prefix.psf and parent/prefix/prefix.pdb (make sure the pdb is a single frame, not a trajectory)
+- run /path/to/common/unAlchemize.sh prefix targetRes /path/to/common in the parent directory. This will create a new psf and pdb with the targetRes in place of the original dual topology.
+
+## Making the inputs for ABFE Calculations:
+- run /path/to/common/makeABFE.sh
