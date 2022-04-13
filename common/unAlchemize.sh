@@ -12,7 +12,6 @@ newRes=$2
 dualName=$(echo $1 | head -c 4)
 index=$(echo $1 | tail -c 2)
 prefixout="${newRes}_$index"
-#monoName="POP$( echo $dualName | tail -c 1 )"
 depatch="${dualName}_to_$newRes"
 fout="$prefixout.tcl"
 depatchName="$( echo $dualName | tail -c 3 )$( echo $newRes | tail -c 3 )"
@@ -34,7 +33,7 @@ echo "source $commonPath/patch_script.tcl" > $depatch.tcl
 echo "cleanSlate $prefixin/$prefixin $commonPath $depatch.rtf" >> $depatch.tcl
 
 #Apply the deletion patch rename the residue and write the new psf and pdb
-echo "depatch $dualName $depatchName $prefixout $newRes" >> $depatch.tcl
+echo "depatch $dualName $depatchName $prefixout $newRes $commonPath $depatch.rtf" >> $depatch.tcl
 
 #Load the new molecule
 echo "mol new $prefixout.psf" >> $depatch.tcl

@@ -14,11 +14,12 @@ proc cleanSlate {prefix commonPath keyRTF} {
 	catch {topology $commonPath/$keyRTF} 	
 	mol load psf $prefix.psf pdb $prefix.pdb
 	
+	resetpsf
 	readpsf $prefix.psf
 	coordpdb $prefix.pdb
 }
 
-proc depatch {dualName depatchName prefixout monoName} {
+proc depatch {dualName depatchName prefixout monoName commonPath keyRTF} {
 	set debug 1
 	puts "Depatching top molecule resname $dualName..."
 	set sel [atomselect top "resname $dualName"]
@@ -27,13 +28,46 @@ proc depatch {dualName depatchName prefixout monoName} {
 	if {$debug == 1 } {puts "Segname: $sn"}
 	set rid [lindex [$sel get resid] 0]
 	if {$debug == 1 } {puts "Resid: $rid"}
-	$sel set resname $monoName
 	
 	patch $depatchName $sn:$rid
 	regenerate angles dihedrals
 	writepsf $prefixout.psf
 	writepdb $prefixout.pdb
 	puts "Files saved"
+	
+	mol delete all
+	mol new $prefixout.psf
+	mol addfile $prefixout.pdb
+	
+	RENAme $commonPath $keyRTF $dualName
+	set sel [atomselect top "resname $dualName"]
+	$sel set resname $monoName
+	
+	animate write psf $prefixout.psf
+	animate write pdb $prefixout.pdb
+	mol delete all
+}
+
+proc RENAme {commonPath keyRTF resname} { 
+	set fp [open "$commonPath/$keyRTF" r]
+	set file_data [read $fp]
+	close $fp
+
+	#  Process data file
+	set data [split $file_data "\n"]
+	foreach line $data {
+	     set splitLine [regexp -all -inline {\S+} $line]
+	     if {[lindex $splitLine 0]=="RENA"} {
+	     	set to [lindex $splitLine 2]
+	     	set from [lindex $splitLine 3]
+	     	
+	     	puts "renaming $from to $to"
+	     	set sel [atomselect top "resname $resname and name $from"]
+	     	puts [$sel num]
+	     	$sel set name $to
+	     	$sel delete
+	     }
+	}
 }
 
 proc mutateResidue {the_resid patchName prefixout} {
@@ -48,7 +82,8 @@ proc mutateResidue {the_resid patchName prefixout} {
 	if {$debug == 1 } {puts "Animate write..."}
 	animate write psf $prefixout.psf
 	animate write pdb $prefixout.pdb
-
+	
+	resetpsf
 	#Read in the renamed structure
 	readpsf $prefixout.psf
 	coordpdb $prefixout.pdb
@@ -56,6 +91,31 @@ proc mutateResidue {the_resid patchName prefixout} {
 	#do patch
 	if {$debug == 1 } {puts "do patch..."}
 	patch $patchName MEMB:$the_resid
+	
+	#Force the incoming O11 to overlap the outgoing O11
+	set O12 [atomselect top "segname MEMB and resid $the_resid and name O12"]
+	set XYZ "[$O12 get x] [$O12 get y] [$O12 get z]"
+	psfset coord MEMB $the_resid O12M $XYZ
+	$O12 delete
+	
+	set O11 [atomselect top "segname MEMB and resid $the_resid and name O11"]
+	set XYZ "[$O11 get x] [$O11 get y] [$O11 get z]"
+	psfset coord MEMB $the_resid O11M $XYZ
+	$O11 delete
+	
+	#set C11 [atomselect top "segname MEMB and resid $the_resid and name C11"]
+	#set XYZ "[$C11 get x] [$C11 get y] [$C11 get z]"
+	#psfset coord MEMB $the_resid C11M $XYZ
+	#$C11 delete
+	
+	#animate write pdb temp.pdb
+	#writepsf temp.psf
+	
+	#resetpsf
+	#readpsf temp.psf
+	#coordpdb temp.pdb
+	
+	
 	if {$debug == 1 } {puts "Guess coords..."}
 	guesscoord
 	if {$debug == 1 } {puts "regenerate angles dihedrals..."}
@@ -73,7 +133,7 @@ proc mutateResidue {the_resid patchName prefixout} {
 proc doAlch {patchName prefixout namesOut} {
 	set debug 1
 	if { $debug == 1 } { puts "line 32" }
- 	set alchin [atomselect top "resname $patchName and occupancy 0 '-1'"] ;#Take advantage of the fact that guessed coordinates have occ=0
+ 	set alchin [atomselect top "resname $patchName and (occupancy 0 '-1' or name O11M O12M)"] ;#Take advantage of the fact that guessed coordinates have occ=0
 	$alchin set beta 1
 	set alchout [atomselect top "resname $patchName and name $namesOut"]
 	$alchout set beta -1

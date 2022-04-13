@@ -1,5 +1,5 @@
-# Internal Procedure for making and running FEP
-# Procedure for setting up the overall system:
+# Internal Procedures for making and running FEP
+## Procedure for setting up the overall system:
 - Build the system using standard methods (CHARMM GUI)
 - Equilibrate the system using "normal" topologies
 - Select and generate the dual-topology patches as needed
@@ -12,13 +12,11 @@
 - Create an appropriate restraint template in the TEMPLATE directory
 
 # Procedure for patching and generating a new replica: 
-## Generating the input files
-- Open the initial configuration in vmd and select the residue to be mutated. Close vmd.
-- Run makeAlchemy.sh like so: >> ./makeAlchemy.sh [resid] [patch] [PREFIX] [path/to/common/directory/with/scripts]
-- The script will open vmd and and the colvars dashboard.
-- Open the draft restraint which you'll find in ./[patch]_[resid]/[something].[patch]_[restraint].colvars 
-- Confirm that the colvar refers to the correct atom (autoselections will not update unless you complete this step)
-- Over-write the config file with the one in vmd (this updates the atomselections)
+## Generating the input files (patching)
+- Open the initial configuration in vmd and decide which residue (resid) to be mutated. Close vmd.
+- Run makeAlchemy.sh like so: >> ./makeAlchemy.sh [resid] [patch] [PREFIX]
+- The script will open vmd and update the colvars
+- Confirm that the colvar refers to the correct atom 
 - Close vmd
 - The script will do a little cleanup and end.
 - All necessary files will be found in ./[patch]_[resid]
@@ -30,11 +28,14 @@
 - Run "sbatch runEQ.sh" which will run starting...namd
 - Run "bash do_run_....sh". The do_run relies on relentless_FEP by Tom Joseph. It's available on Amarel.
 
-# ABFE Calculations
-## Removing a headgroup for ABFE Calculations:
+## Removing a headgroup (depatching):
 - Get a psf and pdb of an appropriate state
 - Save them as parent/prefix/prefix.psf and parent/prefix/prefix.pdb (make sure the pdb is a single frame, not a trajectory)
-- run /path/to/common/unAlchemize.sh prefix targetRes /path/to/common in the parent directory. This will create a new psf and pdb with the targetRes in place of the original dual topology.
+- In the parent directory run:
+>> /path/to/common/unAlchemize.sh prefix newRes /path/to/common 
+- This will create a new psf and pdb with the targetRes in place of the original dual topology. These can then be used as inputs for either ABFE or loop closure.
+- CAUTION: this assumes you're using the other scripts for file generation. Strange things may happen if you have custom named files. (Note to self: make these scripts more robust to different file names)
 
+# ABFE Calculations
 ## Making the inputs for ABFE Calculations:
 - run /path/to/common/makeABFE.sh
