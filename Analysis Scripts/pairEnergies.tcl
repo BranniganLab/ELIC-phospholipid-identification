@@ -15,7 +15,7 @@ proc getPairEnergies {seltext1 seltext2 oName} {
 	set sel1 [atomselect top $seltext1]
 	set sel2 [atomselect top $seltext2]
 	set parpath /home/ems363/toppar
-	namdenergy -sel $sel1 $sel2 -vdw -elec -nonb -ofile $oName -par $parpath/par_all36_carb.prm -par $parpath/par_all36_cgenff.prm -par $parpath/par_all36_lipid.prm -par $parpath/par_all36m_prot.prm -par $parpath/par_all36_na.prm
+	namdenergy -sel $sel1 $sel2 -vdw -elec -nonb -ofile $oName -par $parpath/par_all36_carb.prm -par $parpath/par_all36_cgenff.prm -par $parpath/par_all36_lipid.prm -par $parpath/par_all36m_prot.prm -par $parpath/par_all36_na.prm $parpath/toppar_water_ions.str
 
 }
 

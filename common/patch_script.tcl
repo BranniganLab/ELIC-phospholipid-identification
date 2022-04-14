@@ -11,6 +11,7 @@ proc cleanSlate {prefix commonPath keyRTF} {
 	topology $commonPath/POPC_to_POCE.rtf
 	topology $commonPath/POPC_to_POCG.rtf
 	topology $commonPath/POPG_to_POGE.rtf
+	topology $commonPath/POPE_to_POEG.rtf
 	catch {topology $commonPath/$keyRTF} 	
 	mol load psf $prefix.psf pdb $prefix.pdb
 	
@@ -19,8 +20,7 @@ proc cleanSlate {prefix commonPath keyRTF} {
 	coordpdb $prefix.pdb
 }
 
-proc depatch {dualName depatchName prefixout monoName commonPath keyRTF} {
-	set debug 1
+proc depatch {dualName depatchName prefixout monoName commonPath keyRTF debug} {
 	puts "Depatching top molecule resname $dualName..."
 	set sel [atomselect top "resname $dualName"]
 	if {$debug == 1 } {puts [$sel num]}
@@ -70,9 +70,7 @@ proc RENAme {commonPath keyRTF resname} {
 	}
 }
 
-proc mutateResidue {the_resid patchName prefixout} {
-	set debug 1
-	
+proc mutateResidue {the_resid patchName prefixout debug} {
 	#Rename the target lipid
 	if {$debug == 1 } {puts "Rename..."}
 	set sel [atomselect top "segname MEMB and resid $the_resid"]
@@ -130,8 +128,7 @@ proc mutateResidue {the_resid patchName prefixout} {
 #C namesOut: C15 H15A H15B H15C C14 H14A H14B H14C C13 H13B H13A H13C N H12B C12 H12A H11B C11 H11A O12 P O14 O13 O11
 #G namesOut:
 #E namesOut:
-proc doAlch {patchName prefixout namesOut} {
-	set debug 1
+proc doAlch {patchName prefixout namesOut debug} {
 	if { $debug == 1 } { puts "line 32" }
  	set alchin [atomselect top "resname $patchName and (occupancy 0 '-1' or name O11M O12M)"] ;#Take advantage of the fact that guessed coordinates have occ=0
 	$alchin set beta 1
@@ -143,32 +140,7 @@ proc doAlch {patchName prefixout namesOut} {
 	if { $debug == 1 } { puts "line 40" }
 }
 
-proc main {res patch prefixin prefixout namesOut commonPath} {
-	set debug 1
-	cleanSlate $prefixin $commonPath nan
-	
-	if {$debug == 1 } {puts "Mutate residue..."}
-	mutateResidue $res $patch $prefixout
-	if {$debug == 1 } {puts "Mutated\n Open files"}
-	mol new $prefixout.psf
-	mol addfile $prefixout.pdb
-	mol delrep 0 top 
-	mol selection "resname $patch"
-	mol addrep top
-	
-	mol representation vdw
-	mol color ColorID 0
-	mol selection "resname $patch and beta=-1"
-	mol addrep top
-	
-	mol color ColorID 1
-	mol selection "resname $patch and beta 1"
-	mol addrep top
-	
-	if {$debug == 1 } {puts "doAlch..."}
-	doAlch $patch $prefixout $namesOut
-	if {$debug == 1 } {puts "Alch done.\nUpdate colvars"}
-	
+proc updateCV {debug} {
 	package require cv_dashboard
 	set confFile "./${patch}_${res}/zrestraint.${patch}_${res}.colvars"
 	set in [open $confFile r]
@@ -180,6 +152,36 @@ proc main {res patch prefixin prefixout namesOut commonPath} {
 	puts $out $newcfg
 	close $out
 	if {$debug == 1 } {puts "Colvars updated"}
+}
+
+proc main {res patch prefixin prefixout namesOut commonPath} {
+	set debug 1
+	cleanSlate $prefixin $commonPath nan
+	
+	if {$debug == 1 } {puts "Mutate residue..."}
+	mutateResidue $res $patch $prefixout $debug
+	if {$debug == 1 } {puts "Mutated\n Open files"}
+	mol new $prefixout.psf
+	mol addfile $prefixout.pdb
+	mol delrep 0 top 
+	mol selection "resname $patch"
+	mol addrep top
+	
+	mol representation licorice
+	mol color ColorID 0
+	mol selection "resname $patch and beta=-1"
+	mol addrep top
+	
+	mol color ColorID 1
+	mol selection "resname $patch and beta 1"
+	mol addrep top
+	
+	if {$debug == 1 } {puts "doAlch..."}
+	doAlch $patch $prefixout $namesOut $debug
+	if {$debug == 1 } {puts "Alch done.\nUpdate colvars"}
+	
+	updateCV $debug
+	
 }
 
 

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 function templateAll {
 	local affix=$1
 	local resid=$2
@@ -12,6 +13,31 @@ function templateAll {
 	sed "s/TEMPLATE/$affix/g" $source/common_TEMPLATE.namd 		> common_$affix.namd
 }
 
+function buildABFEtcl {
+	local fout=$1
+	local commonPath=$2
+	local resid=$3
+	local prefin=$4
+	local prefout=$5
+
+	#Make the tcl script
+	echo "" > $fout
+	echo "source $commonPath/patch_script.tcl" >> $fout
+	echo "set res $resid" >> $fout
+	echo "set prefin $prefixin" >> $fout
+	echo "set prefout $prefout" >> $fout
+	echo "set commonPath $commonPath" >> $fout
+	
+	#deletes all, and opens prefin.psf and prefin.pdb
+	echo "cleanSlate \$prefin \$commonPath nan" >> $fout
+	echo 'set sel [atomselect top "segname MEMB and resid $res"]' >> $fout
+	echo '$sel set beta "-1"' >> $fout
+	echo "update CV 1" >> $fout
+	echo "animate write psf \$prefout.fep.psf" >> $fout
+	echo "animate write pdb \$prefout.fep.pdb" >> $fout
+}
+
+#Interpret the patch name for input/output names. NamesOut is global
 function parse_patch {
 	local patchName=$1
 	
@@ -19,14 +45,17 @@ function parse_patch {
 		namesOut="C15 H15A H15B H15C C14 H14A H14B H14C C13 H13B H13A H13C N H12B C12 H12A H11B C11 H11A O12 P O14 O13 O11"
 	elif [ "$patchName" = "POGE" ] || [ "$patchName" = "POGC" ]; then
 		namesOut="O11 P O13 O14 O12 C11 H11B H11A H12A C12 OC2 HO2 C13 H13A H13B OC3 HO3"
+		elif [ "$patchName" = "POEC" ] || [ "$patchName" = "POEG" ]; then
+		namesOut="C11 N C12 HN2 O12 O13 P HN1 O14 O11 H12W H12V HN3 H11V H11W"
 	else
-		echo "I don't know how to handle $2 yet."
+		echo "I don't know how to handle $1 yet."
 		exit 1
 	fi
 	
 	#return $namesOut
 }
 
+#Build the TCL for patching
 function buildTCL {
 	local fout=$1
 	local commonPath=$2

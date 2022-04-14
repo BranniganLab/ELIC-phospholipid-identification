@@ -3,9 +3,19 @@
 #Arguments:
 # 1:name of the input prefix (e.g. "POCE_X")
 # 2:newRes (e.g. you've run POCE and POCG, now you need POGE or POEG)
-# 3:path to common directory
 
-commonPath=$3
+#throw an error if a variable is undefined
+set -ue
+
+#Get the relative directory to the common folder
+DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+
+#function definitions:
+. "$DIR/common.sh" 
+
+
+commonPath="$DIR"
 prefixin=$1
 newRes=$2
 
@@ -33,7 +43,8 @@ echo "source $commonPath/patch_script.tcl" > $depatch.tcl
 echo "cleanSlate $prefixin/$prefixin $commonPath $depatch.rtf" >> $depatch.tcl
 
 #Apply the deletion patch rename the residue and write the new psf and pdb
-echo "depatch $dualName $depatchName $prefixout $newRes $commonPath $depatch.rtf" >> $depatch.tcl
+debug=1
+echo "depatch $dualName $depatchName $prefixout $newRes $commonPath $depatch.rtf $debug" >> $depatch.tcl
 
 #Load the new molecule
 echo "mol new $prefixout.psf" >> $depatch.tcl
