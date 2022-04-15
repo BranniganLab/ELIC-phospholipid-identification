@@ -39,7 +39,8 @@ Thumbs.db
 #Large files
 *.dcd
 *.log
-*.namd
+#CHARMM-GUI input
+*.inp 
 *.err
 slurm*
 Trash
