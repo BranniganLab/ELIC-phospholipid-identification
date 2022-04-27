@@ -8,6 +8,17 @@
 #throw an error if a variable is undefined
 set -ue
 
+re='^[0-9]+$'
+if ! [[ $1 =~ $re ]]; then
+helptext="Arguments:
+1: resid to mutate
+2: patch name as found in the topologies
+3: name of the input prefix (your starting psf and pdb)"
+echo "$helptext"
+exit 1
+fi
+
+
 #Get the relative directory to the common folder
 DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
