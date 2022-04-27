@@ -1,0 +1,35 @@
+################################################################################
+
+  
+  # NAMD configuration file generated automatically by NAMDenergy
+
+  # It may be ugly, but it should work.
+
+  # I wouldn't recommend using it for anything else though.
+
+  ################################################################################
+
+structure		prodpoeg.psf
+paraTypeCharmm		on
+parameters		/Applications/VMD 1.9.4a55-arm64-Rev11.app/Contents/vmd/plugins/noarch/tcl/readcharmmpar1.5/par_all27_prot_lipid_na.inp
+numsteps		 1
+exclude			 scaled1-4
+outputname		 namd-temp
+temperature		 0
+COMmotion 		 yes
+cutoff			 12
+dielectric		 1.0
+switchdist		 10
+pairInteraction		 on
+pairInteractionGroup1 1
+pairInteractionFile   namd-temp.pdb
+pairInteractionGroup2 2
+coordinates namd-temp.pdb
+set ts 0
+coorfile open dcd namd-temp.dcd
+while { ![coorfile read] } {
+   firstTimestep $ts
+   run 0
+   incr ts 1
+}
+coorfile close
