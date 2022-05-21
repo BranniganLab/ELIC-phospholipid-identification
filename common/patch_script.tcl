@@ -12,6 +12,7 @@ proc cleanSlate {prefix commonPath keyRTF} {
 	topology $commonPath/POPC_to_POCG.rtf
 	topology $commonPath/POPG_to_POGE.rtf
 	topology $commonPath/POPE_to_POEG.rtf
+	topology $commonPath/POEG_to_POPE.rtf
 	catch {topology $commonPath/$keyRTF} 	
 	mol load psf $prefix.psf pdb $prefix.pdb
 	
