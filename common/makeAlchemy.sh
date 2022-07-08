@@ -38,7 +38,7 @@ fout="$affix.tcl"
 #Make the directory and accompanying files
 mkdir $affix || echo "Warning: $affix already exists"
 cd $affix
-templateAll $affix $resid ../TEMPLATE
+templateAll $affix $resid $commonPath/sample_TEMPLATE
 mkdir restraints || echo "Continuing"
 cd ..
 
