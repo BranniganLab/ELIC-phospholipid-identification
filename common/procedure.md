@@ -14,6 +14,7 @@
 # Procedure for patching and generating a new replica: 
 ## Generating the input files (patching)
 - Open the initial configuration in vmd and decide which residue (resid) to be mutated. Close vmd.
+- *IMPORTANT: extracted frames from trajectories may cause psfgen to crash. Regenerate the psf using regenerate_psf.py by Tom Joseph before continuing.*
 - Run makeAlchemy.sh like so: >> ./makeAlchemy.sh [resid] [patch] [PREFIX]
 - The script will open vmd and update the colvars
 - Confirm that the colvar refers to the correct atom 
