@@ -1,19 +1,23 @@
 #!/bin/bash
 
 #Arguments:
-# 1:resid to mutate
-# 2:patch name (as found in the topology file)
-# 3:name of the input prefix ("PCPG31")
+#1: segname of resid to mutate
+#2: resid to mutate
+#3: patch name as found in the topologies
+#4: name of the input prefix (your starting psf and pdb)
 
 #throw an error if a variable is undefined
 set -ue
 
-re='^[0-9]+$'
-if ! [[ $1 =~ $re ]]; then
+#re='^[0-9]+$'
+#if [[ $1 =~ $re ]]; then
+if [[ $1 = '-h' ]]; then
 helptext="Arguments:
-1: resid to mutate
-2: patch name as found in the topologies
-3: name of the input prefix (your starting psf and pdb)"
+1: segname of resid to mutate
+2: resid to mutate
+3: patch name as found in the topologies
+4: name of the input prefix (your starting psf and pdb)
+-h: print this help text and quit"
 echo "$helptext"
 exit 1
 fi
@@ -28,10 +32,11 @@ if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 
 
 commonPath="$DIR"
-resid="$1"
-patchName="$2"
-affix="$2_$1"
-prefixin="$3"
+seg="$1"
+resid="$2"
+patchName="$3"
+affix="$3_$2"
+prefixin="$4"
 fout="$affix.tcl"
 
 
@@ -42,7 +47,7 @@ templateAll $affix $resid $commonPath/sample_TEMPLATE
 mkdir restraints || echo "Continuing"
 cd ..
 
-buildTCL $fout $commonPath $resid $patchName $prefixin $affix 
+buildTCL $fout $commonPath $seg $resid $patchName $prefixin $affix 
 
 #Execute the tcl script
 #vmd -dispdev none -e $fout

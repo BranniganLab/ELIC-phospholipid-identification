@@ -73,10 +73,10 @@ proc RENAme {commonPath keyRTF resname} {
 	}
 }
 
-proc mutateResidue {the_resid patchName prefixout debug} {
+proc mutateResidue {the_seg the_resid patchName prefixout debug} {
 	#Rename the target lipid
 	if {$debug == 1 } {puts "Rename..."}
-	set sel [atomselect top "segname MEMB and resid $the_resid"]
+	set sel [atomselect top "segname $the_seg and resid $the_resid"]
 	$sel set resname $patchName
 	mol delrep 0 top
 	
@@ -91,17 +91,17 @@ proc mutateResidue {the_resid patchName prefixout debug} {
 
 	#do patch
 	if {$debug == 1 } {puts "do patch..."}
-	patch $patchName MEMB:$the_resid
+	patch $patchName $the_seg:$the_resid
 	
 	#Force the incoming O11 to overlap the outgoing O11
-	set O12 [atomselect top "segname MEMB and resid $the_resid and name O12"]
+	set O12 [atomselect top "segname $the_seg and resid $the_resid and name O12"]
 	set XYZ "[$O12 get x] [$O12 get y] [$O12 get z]"
-	psfset coord MEMB $the_resid O12M $XYZ
+	psfset coord $the_seg $the_resid O12M $XYZ
 	$O12 delete
 	
-	set O11 [atomselect top "segname MEMB and resid $the_resid and name O11"]
+	set O11 [atomselect top "segname $the_seg and resid $the_resid and name O11"]
 	set XYZ "[$O11 get x] [$O11 get y] [$O11 get z]"
-	psfset coord MEMB $the_resid O11M $XYZ
+	psfset coord $the_seg $the_resid O11M $XYZ
 	$O11 delete
 	
 	#set C11 [atomselect top "segname MEMB and resid $the_resid and name C11"]
@@ -157,20 +157,21 @@ proc updateCV {debug} {
 	if {$debug == 1 } {puts "Colvars updated"}
 }
 
-proc main {res patch prefixin prefixout namesOut commonPath} {
+proc main {seg res patch prefixin prefixout namesOut commonPath} {
 	set debug 1
 	cleanSlate $prefixin $commonPath nan
 	
 	if {$debug == 1 } {puts "Mutate residue..."}
-	mutateResidue $res $patch $prefixout $debug
+	mutateResidue $seg $res $patch $prefixout $debug
 	if {$debug == 1 } {puts "Mutated\n Open files"}
 	mol new $prefixout.psf
 	mol addfile $prefixout.pdb
 	mol delrep 0 top 
+	
+	mol representation licorice
 	mol selection "resname $patch"
 	mol addrep top
 	
-	mol representation licorice
 	mol color ColorID 0
 	mol selection "resname $patch and beta=-1"
 	mol addrep top
