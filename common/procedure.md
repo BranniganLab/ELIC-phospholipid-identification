@@ -17,6 +17,7 @@
 - *IMPORTANT: extracted frames from trajectories may cause psfgen to crash. Regenerate the psf using regenerate_psf.py by Tom Joseph before continuing.*
 - Run makeAlchemy.sh like so: >> ./makeAlchemy.sh [resid] [patch] [PREFIX]
 - The script will open vmd and update the colvars
+- Check the incoming and outgoing atoms (colored by beta)
 - Confirm that the colvar refers to the correct atom 
 - Close vmd
 - The script will do a little cleanup and end.
