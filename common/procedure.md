@@ -18,7 +18,7 @@
 - Run makeAlchemy.sh like so: >> ./makeAlchemy.sh [resid] [patch] [PREFIX]
 - The script will open vmd and update the colvars
 - Check the incoming and outgoing atoms (colored by beta)
-- Confirm that the colvar refers to the correct atom 
+- Confirm that the colvar refers to the correct atom. Change manually if incorrect.
 - Close vmd
 - The script will do a little cleanup and end.
 - All necessary files will be found in ./[patch]_[resid]
