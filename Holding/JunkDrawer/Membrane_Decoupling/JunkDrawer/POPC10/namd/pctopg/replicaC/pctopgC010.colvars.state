@@ -1,0 +1,18 @@
+configuration {
+  step      1200500
+  dt 2.000000e+00
+  version 2020-07-07
+}
+
+colvar {
+  name headgroup_z
+  x  3.00188025945911e+01
+}
+
+restraint {
+  configuration {
+    step 1200500
+    name glycerol_head_walls
+  }
+}
+

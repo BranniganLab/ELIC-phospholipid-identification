@@ -1,0 +1,24 @@
+units real
+
+colvar {
+    name ELIC5
+
+    # Insert one or several components below (see templates/components)
+
+    distance {
+        group1 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "resname POEG and name OC3M OC2M"
+            atomNumbers 25269 25273
+
+        }
+        group2 {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "segname PROA and residue 307 and name NH2 NH1"
+            atomNumbers 5002 5005
+
+        }
+    }
+}
+
+

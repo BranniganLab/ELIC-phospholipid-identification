@@ -1,0 +1,38 @@
+colvarsTrajFrequency 100
+colvarsRestartFrequency 10000
+
+colvar {
+    name ligand_z_pos
+
+    width 0.1
+
+    lowerboundary -30.0
+    upperboundary 30.0
+
+    lowerwallconstant 10.0
+    upperwallconstant 10.0
+
+    # TODO: which colvar type should we use? 
+    # TODO: Set up an anesthetic ligand somewhere in the system
+    # TODO: We need to equilibrate points along the pathway?
+    # Or perhaps a distanceZ with one set of coordinates the water on one side
+    # of the membrane, and the other some heavy atom in the ligand.
+
+    distanceZ {
+        ref {
+            atomsFile ref.abf.pdb
+            # B=1 for those waters
+            atomsCol B
+        }
+        main {
+            # Subset of ligand heavy atoms
+            atomnumbers {1 2 3 }
+        }
+    }
+
+}
+
+abf {
+    colvars ligand_z_pos
+    fullsamples 500
+}

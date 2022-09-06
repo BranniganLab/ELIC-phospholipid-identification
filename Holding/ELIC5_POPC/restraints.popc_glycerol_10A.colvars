@@ -1,0 +1,67 @@
+# Colvars restraint setup for FEP for ligand "segid HETA and name C1 C2 C3 O21 O22 O11"
+
+# Distance of ligand from its binding site
+colvar {
+    name ligand_fb
+
+    distance {
+        group1 {
+            # Ligand atom numbers
+            atomNumbers 25334 25335 25338 25340 25342 25346
+            rotateReference
+            centerReference
+            # fit to 28 protein atoms within 7.9 A
+            fittingGroup {
+                atomsCol O
+                atomsFile rest_ref.popc_glycerol.pdb
+            } 
+            refPositionsFile rest_ref.popc_glycerol.pdb       # ref protein coords for fitting. 
+        }
+        group2 {
+            dummyAtom (27.539501190185547, -0.5418333411216736, 11.191499710083008)
+        }
+    }
+
+}
+
+harmonicWalls {
+    name ligand_fb_wall
+    colvars ligand_fb
+    upperWalls 6.0
+    upperWallConstant 100.0
+}
+
+colvar {
+    name rmsd_rest
+    width 1.0
+    lowerboundary 0.0
+    upperboundary 10.0
+    rmsd {
+        atoms {
+            centerReference off
+            rotateReference off
+            atomNumbers 25334 25335 25338 25340 25342 25346
+        }
+        refPositionsCol B
+        refPositionsFile rest_ref.popc_glycerol.pdb
+    }
+}
+
+# We would expect to remove this restraint with TI later
+harmonicWalls {
+    name wall
+    colvars rmsd_rest
+    forceConstant 100
+    upperWalls 10.0
+}
+
+histogram {
+  colvars rmsd_rest
+  outputFile popc_glycerol_10A.histogram.dat
+
+  histogramGrid {
+    widths 0.1
+    lowerboundaries 0.0
+    upperboundaries 10.0 
+  }
+}

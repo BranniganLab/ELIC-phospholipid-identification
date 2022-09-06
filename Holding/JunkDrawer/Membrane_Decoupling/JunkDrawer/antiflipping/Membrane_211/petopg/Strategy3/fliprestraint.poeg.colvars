@@ -1,0 +1,33 @@
+colvar {
+    name strat3
+
+    # Insert one or several components below (see templates/components)
+
+    distanceZ {
+        main {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "resname POEG and name P PM"
+            atomNumbers 11 28
+
+
+        }
+        ref {
+            # "auto-updating" keyword updates atom IDs when applying cfg or changing molecule
+            # auto-updating selection: "name P"
+            atomNumbers 11 162 287 421 546 680 805 939 1073 1207 1332 1459 1586 1720 1845 1979 2104 2238 2372 2499 2633 2767 2901 3035 3169 3303 3428 3555 3689 3823 3957 4084 4218 4343 4477 4604 4731 4865 4999 5124 5249 5383 5517 5651 5785 5912 6039 6173 6298 6423 6550 6677 6811 6936 7061 7188 7315 7442 7576 7703 7828 7953 8087 8212 8346 8471 8605 8732 8866 8991 9118 9252 9386 9520 9645 9772 9899 10033 10167 10301 10435 10562 10696 10830 10964 11089 11216 11350 11475 11602 11727 11861 11995 12129 12254 12381 12506 12640 12774 12901 13035 13169 13294 13428 13562 13687 13821 13955 14082 14216 14350 14477 14602 14736 14863 14990 15115 15242 15369 15503
+
+        }
+    }
+}
+
+
+
+
+harmonicWalls {
+    name antiflip
+    colvars strat3
+    #
+    lowerwalls 14
+    upperwalls 35.0
+    forceconstant 4.0
+}     
