@@ -1,0 +1,18 @@
+configuration {
+  step         1000
+  dt 2.000000e+00
+  version 2020-02-27
+}
+
+colvar {
+  name zrestraint
+  x  3.66967600190679e+01
+}
+
+restraint {
+  configuration {
+    step 1000
+    name harmonicwalls1
+  }
+}
+
