@@ -114,8 +114,83 @@ def processLeg(paths, RT, decorrelate, pattern, temperature, detectEQ, lambdas):
     
     return keyColors, cumulative, perWindow, df_converge, affix
 
+# def processLeg(root, prefix, nDone, checkReplicas):
+#     paths = glob(f'{root}/{prefix}*/')
+#     if checkReplicas==True:
+#         paths = checkPaths(paths, nDone)
+        
+#     print(paths)
+#     u_nks, cumulative, perWindow, affix = batchProcess(paths, RT, decorrelate, pattern, temperature, detectEQ)
 
-def processAllLegs(root, prefixes, pattern, lambdas, temperature, RT, decorrelate, detectEQ, checkReplicas=False, dry=False):
+#     perWindow[('mean', 'df')] = np.mean(perWindow.loc[:, (slice(None), 'df')], axis=1)
+#     perWindow[('mean', 'ddf')] = np.mean(perWindow.loc[:, (slice(None), 'ddf')], axis=1)
+#     perWindow[('mean', 'dG_f')] = np.mean(perWindow.loc[:, (slice(None), 'dG_f')], axis=1)
+#     perWindow[('mean', 'dG_b')] = np.mean(perWindow.loc[:, (slice(None), 'dG_b')], axis=1)
+
+#     reps = list(set(perWindow.columns.get_level_values(0)))
+#     for key in reps:
+#         perWindow[(key, 'diff')] = perWindow[(key, 'dG_f')]+perWindow[(key, 'dG_b')]
+
+#     keys = set(cumulative.columns.get_level_values(0))
+#     colors = ['#0072B2', '#D55E00', '#CC79A7', '#009E73', '#E69F00']
+#     keyColors = {}
+#     i = 0
+#     for key in keys:
+#         keyColors[key] = colors[i]
+#         i += 1
+        
+#     return reps, keyColors, u_nks, cumulative, perWindow, affix
+
+
+# def processAllLegs(root, prefixes, nDone=41, checkReplicas=False):
+#     meta_unks = {}
+#     meta_cumulative = {}
+#     meta_perWindow = {}
+#     meta_affix = {}
+#     meta_keyColors = {}
+#     meta_reps = {}
+#     feps = np.round(np.linspace(0, 1, nDone),6)
+#     meta_fs = {}
+#     meta_bs = {}
+#     meta_bes = {}
+#     meta_fes = {}
+#     for prefix in prefixes:
+#         if len(glob(root+'/'+prefix+'*/')) > 0:
+#             reps, keyColors, u_nks, cumulative, perWindow, affix = processLeg(root, prefix, nDone, checkReplicas)
+
+#             meta_reps[prefix] = reps
+#             meta_keyColors[prefix] = keyColors
+#             meta_unks[prefix] = u_nks
+#             meta_cumulative[prefix] = cumulative
+#             meta_perWindow[prefix] = perWindow
+#             meta_affix[prefix] = affix
+
+#             fs = {}
+#             bs = {}
+#             fes = {}
+#             bes = {}
+
+#             for l in [x for x in meta_reps[prefix] if x != "mean"]:
+#                 print(f'Doing convergence on {l}')
+#                 u_nks = meta_unks[prefix]
+#                 try:
+#                     forward, forward_error, backward, backward_error = doConvergence(u_nks[l], feps)
+#                 except:
+#                     print(f"Failed to doConvergence on {l}")
+#                     raise
+#                 fs[l] = forward
+#                 fes[l] = forward_error
+#                 bs[l] = backward
+#                 bes[l] = backward_error
+
+#             meta_fs[prefix]=fs
+#             meta_bs[prefix]=bs
+#             meta_fes[prefix]=fes
+#             meta_bes[prefix]=bes
+    
+#     return {'unks':meta_unks, 'cumulatives':meta_cumulative, 'perWins':meta_perWindow, 'affixes':meta_affix, 'keyColors':meta_keyColors, 'reps':meta_reps, 'fs':meta_fs, 'bs':meta_bs, 'fes':meta_fs, 'bes':meta_bes}
+
+def processAllLegs(root, prefixes, pattern, lambdas, temperature, RT, decorrelate, detectEQ, checkReplicas=False, dry=False, postfix='*/*'):
     meta_cumulative = {}
     meta_perWindow = {}
     meta_keyColors = {}
@@ -123,7 +198,7 @@ def processAllLegs(root, prefixes, pattern, lambdas, temperature, RT, decorrelat
     nDone = len(lambdas)
     
     for prefix in prefixes:
-        paths = glob(root+prefix+'*/*')
+        paths = glob(root+prefix+postfix)
         if checkReplicas==True:
             paths = checkPaths(paths, nDone)
         if len(paths)==0:
