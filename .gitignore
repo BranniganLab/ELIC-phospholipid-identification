@@ -64,3 +64,5 @@ Trash # Most unix systems lack a "trashcan". Use "git rm --cached undesired.txt"
 
 
 #GROMACS
+*.pyc
+common/analysis_scripts_and_notebooks/.ipynb_checkpoints/GenProteinFigures-checkpoint.ipynb
