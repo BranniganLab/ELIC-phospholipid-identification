@@ -6,7 +6,7 @@
 #SBATCH -N 3 -n 96
 ##SBATCH -N 1 -n 32
 #SBATCH --mem=6000
-#SBATCH -t 00:30:00       # max time
+#SBATCH -t 03:00:00       # max time
 #SBATCH --output=starting.out     # STDOUT output file
 #SBATCH --requeue
 module purge

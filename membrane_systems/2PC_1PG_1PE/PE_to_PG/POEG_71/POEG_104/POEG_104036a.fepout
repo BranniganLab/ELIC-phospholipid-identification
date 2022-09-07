@@ -1,3 +1,0 @@
-#            STEP                 Elec                            vdW                    dE           dE_avg         Temp             dG
-#                           l             l+dl             l            l+dl         E(l+dl)-E(l)
-FepE_back:    200     -78936.2788    -78936.0004      1274.4055      1290.2167        16.0896        -1.7740       160.4222        -7.1482
