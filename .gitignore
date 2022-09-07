@@ -68,3 +68,5 @@ Trash # Most unix systems lack a "trashcan". Use "git rm --cached undesired.txt"
 common/analysis_scripts_and_notebooks/.ipynb_checkpoints/GenProteinFigures-checkpoint.ipynb
 common/analysis_scripts_and_notebooks/.ipynb_checkpoints/GenMembraneFigures-checkpoint.ipynb
 common/analysis_scripts_and_notebooks/.ipynb_checkpoints/GenMembraneFigures-checkpoint.ipynb
+common/analysis_scripts_and_notebooks/.ipynb_checkpoints*
+common/analysis_scripts_and_notebooks/__pycache__*
