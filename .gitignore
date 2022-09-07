@@ -61,8 +61,6 @@ Trash # Most unix systems lack a "trashcan". Use "git rm --cached undesired.txt"
 *.dcd*
 *.old
 
-#NAMD Free Energy Perturbation outputs
-*.fepout
-*.fep #If you use .fep for your beta file, either remove this and rename your outputs to fepout or use "git add -f my_alchs.fep"
+
 
 #GROMACS
