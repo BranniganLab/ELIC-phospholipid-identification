@@ -3,6 +3,7 @@
 #Arguments:
 # 1:name of the input prefix (e.g. "POCE_X")
 # 2:newRes (e.g. you've run POCE and POCG, now you need POGE or POEG)
+# 3:dualName (The name of the current dual topology
 
 #throw an error if a variable is undefined
 set -ue
@@ -19,7 +20,7 @@ commonPath="$DIR"
 prefixin=$1
 newRes=$2
 
-dualName=$(echo $1 | head -c 4)
+dualName=$3
 index=$(echo $1 | tail -c 2)
 prefixout="${newRes}_$index"
 depatch="${dualName}_to_$newRes"
@@ -34,7 +35,7 @@ echo $depatchName
 #exit 1
 
 #Make the directory and accompanying files
-mkdir $depatch
+mkdir $depatch || echo "Warning: $depatch already exists"
 
 #Load the procs that we'll need
 echo "source $commonPath/patch_script.tcl" > $depatch.tcl

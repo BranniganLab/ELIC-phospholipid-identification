@@ -1,0 +1,3 @@
+#            STEP                 Elec                            vdW                    dE           dE_avg         Temp             dG
+#                           l             l+dl             l            l+dl         E(l+dl)-E(l)
+FepEnergy: 1360100    -440124.0099   -440124.0604     17459.7617     17459.5069        -0.3053        -0.3053       303.4088        -0.3053

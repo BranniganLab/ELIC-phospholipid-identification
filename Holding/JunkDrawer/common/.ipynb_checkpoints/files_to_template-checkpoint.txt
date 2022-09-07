@@ -1,5 +1,0 @@
-$TEMPLATE_affix
-lorem ipsum $TEMPLATE_resid dolor est
-adathareimunare$TEMPLATE_affix ameno
-
-TEMPLATE_affix without a dollar sign

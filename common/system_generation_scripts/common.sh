@@ -45,8 +45,8 @@ function parse_patch {
 		namesOut="C15 H15A H15B H15C C14 H14A H14B H14C C13 H13B H13A H13C N H12B C12 H12A H11B C11 H11A O12 P O14 O13 O11"
 	elif [ "$patchName" = "POGE" ] || [ "$patchName" = "POGC" ]; then
 		namesOut="O11 P O13 O14 O12 C11 H11B H11A H12A C12 OC2 HO2 C13 H13A H13B OC3 HO3"
-		elif [ "$patchName" = "POEC" ] || [ "$patchName" = "POEG" ]; then
-		namesOut="C11 N C12 HN2 O12 O13 P HN1 O14 O11 H12W H12V HN3 H11V H11W"
+	elif [ "$patchName" = "POEC" ] || [ "$patchName" = "POEG" ]; then
+		namesOut="C11 N C12 HN2 O12 O13 P HN1 O14 O11 H12W H12V HN3 H11V H11W H12A H12B H11A H11B"
 	else
 		echo "I don't know how to handle $1 yet."
 		exit 1
@@ -59,10 +59,11 @@ function parse_patch {
 function buildTCL {
 	local fout=$1
 	local commonPath=$2
-	local resid=$3
-	local patchName=$4
-	local prefin=$5
-	local prefout=$6
+	local seg=$3
+	local resid=$4
+	local patchName=$5
+	local prefin=$6
+	local prefout=$7
 
 	parse_patch $patchName
 	
@@ -70,10 +71,11 @@ function buildTCL {
 	echo "" > $fout
 	echo "source $commonPath/patch_script.tcl" >> $fout
 	echo "set res $resid" >> $fout
+	echo "set seg $seg" >> $fout
 	echo "set patch $patchName" >> $fout
 	echo "set prefin $prefixin" >> $fout
 	echo "set prefout $prefout" >> $fout
 	echo "set namesOut {$namesOut}" >> $fout
 	echo "set commonPath $commonPath" >> $fout
-	echo "main \$res \$patch \$prefin \$prefout \$namesOut \$commonPath" >> $fout
+	echo "main \$seg \$res \$patch \$prefin \$prefout \$namesOut \$commonPath" >> $fout
 }
