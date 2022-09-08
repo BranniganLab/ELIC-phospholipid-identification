@@ -1,7 +1,6 @@
-```
 # Common Files
 ## Contents
-.
+```
 ├── analysis_scripts_and_notebooks
 │   ├── AFEP_parse.py
 │   ├── ConformationModulationAnalysis.ipynb
