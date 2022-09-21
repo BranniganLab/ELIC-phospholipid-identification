@@ -12,7 +12,7 @@ doi: https://doi.org/10.1101/2022.06.07.494883
 - NAMD FEP outputs for each system (not shown below for brevity)
 
 # File Structure:
-In directories with names of the form "POCE_34": "POCE" means the transformation is from PC to PE, "34" refers to the resid of the lipid being transformed.
+In directories with names of the form "POCE_34": "POCE" means the transformation is from PC to PE, "34" refers to the residue number of the lipid being transformed.
 ```
 .
 ├── common
