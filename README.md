@@ -1,8 +1,8 @@
 # ELIC-phospholipid-identification
 
-Data and Analyses related to "Structural mechanism of leaflet-specific phospholipid modulation of a pentameric ligand-gated ion channel". 
-Results in preprint (bioRxiv) 2022. 
-doi: https://doi.org/10.1101/2022.06.07.494883
+Data and Analyses related to "Structural mechanism of leaflet-specific phospholipid modulation of a pentameric ligand-gated ion channel".  
+Results in preprint (bioRxiv) 2022.  
+doi: https://doi.org/10.1101/2022.06.07.494883  
 
 ## This repository contains:
 
@@ -43,9 +43,9 @@ Tested on:
 
 ## Instructions
 
-Python3 can be obtained here: https://www.python.org/downloads/ \
-All the above packages are available via pip: \
-``` pip install jupyter numpy pandas scipy alchemlyb=0.6.0 pymbar ``` \
+Python3 can be obtained here: https://www.python.org/downloads/  
+All the above packages are available via pip:   
+``` pip install jupyter numpy pandas scipy alchemlyb=0.6.0 pymbar ```   
 
 ## Install time
 
@@ -55,17 +55,17 @@ Total install time for python and the above packages should be less than an hour
 
 ## Instructions to run on preprocessed data
 
-The notebooks can be started by running ``` jupyter lab ``` from the main directory and navigating to ./common/analysis_scripts_and_notebooks/ \
+The notebooks can be started by running ``` jupyter lab ``` from the main directory and navigating to ./common/analysis_scripts_and_notebooks/   
 - ELIC conformational modulation by lipid binding.ipynb carries out the ELIC modulation calculations and generates related figures
 - GenMembraneFigures.ipynb carries out FEP analysis of the membrane-only systems 
 - GenProteinFigures.ipynb carries out FEP analysis of the protein systems 
-FEP analysis is carried out by either leveraging preprocessed csvs (pre fitted by BAR or an exponential estimator) or by re-reading the raw fepout files (provided). The notebooks use the preprocessed data by default and for purposes of demonstration.
+FEP analysis is carried out by either leveraging preprocessed csvs (pre fitted by BAR or an exponential estimator) or by re-reading the raw fepout files (provided). The notebooks use the preprocessed data by default and for purposes of demonstration.  
 
 ## Expected output 
 All pregenerated figures can be found in ./common/analysis_scripts_and_notebooks/Figures/
 
 ## Expected demo run time
-The demo (with ```reread = False```) runs in a few minutes on a standard personal computer (including midrange laptops). \
+The demo (with ```reread = False```) runs in a few minutes on a standard personal computer (including midrange laptops).  
 
 # Instructions for use:
 
