@@ -59,16 +59,18 @@ The notebooks can be started by running ``` jupyter lab ``` from the main direct
 
 ### Free Energy Calculations: 
 
+1. Start a jupyter session (e.g. run ``` jupyter lab ``` ) 
+2. Navigate to, and open either:
 - ```GenMembraneFigures.ipynb``` carries out FEP analysis of the membrane-only systems 
 - ```GenProteinFigures.ipynb``` carries out FEP analysis of the protein systems 
+3. Click run->run all cells
+
 The notebooks will output both the figures referenced in the paper as well as the raw $\Delta G$ values that are used in the conformational modulation calculations.  
 **Note:** FEP analysis is carried out by either leveraging preprocessed csvs (pre fitted by BAR or an exponential estimator) or by re-reading the raw fepout files (provided). The notebooks use the preprocessed data by default and for purposes of demonstration.  
 
 ### Conformational Modulation Calculations:
 
 ```ELIC conformational modulation by lipid binding.ipynb``` carries out the ELIC modulation calculations and generates related figures.  
-
-
 
 ## Expected output 
 
@@ -85,6 +87,7 @@ If you wish to reanalyze the fepout data:
 1. open either GenMembraneFigures.ipynb or GenProteinFigures.ipynb 
 2. find the line that says ```reread = False``` 
 3. change that line to ```reread = True``` 
+4. Click run->run all cells
 
 ** WARNING: ** reanalyzing the fepout data requires several gigabytes of RAM and can take ** up to two hours ** for all protein and membrane data depending on the available hardware
 
