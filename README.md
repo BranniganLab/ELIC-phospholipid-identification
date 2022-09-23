@@ -1,9 +1,11 @@
 # ELIC-phospholipid-identification
+
 Data and Analyses related to "Structural mechanism of leaflet-specific phospholipid modulation of a pentameric ligand-gated ion channel". 
 Results in preprint (bioRxiv) 2022. 
 doi: https://doi.org/10.1101/2022.06.07.494883
 
 ## This repository contains:
+
 - System generation scripts
 - Run scripts for NAMD (Note: we made use of relentlessfep.py to generate config files)
 - Analysis scripts
@@ -11,7 +13,77 @@ doi: https://doi.org/10.1101/2022.06.07.494883
 - Parameter and topology files
 - NAMD FEP outputs for each system (not shown below for brevity)
 
+# System Requirements
+
+## Operating System
+
+Tested on:
+- Fedora 34
+- Mac OSx (Monterey)
+- Windows 11
+
+## Software
+
+- Python 3
+
+## Python packages
+
+- Jupyter
+- Numpy
+- Pandas
+- Alchemlyb v0.6.0
+- PyMBAR
+- SciPy
+
+## Non-standard hardware
+
+- None
+
+# Installation
+
+## Instructions
+
+Python3 can be obtained here: https://www.python.org/downloads/ \
+All the above packages are available via pip: \
+``` pip install jupyter numpy pandas scipy alchemlyb=0.6.0 pymbar ``` \
+
+## Install time
+
+Total install time for python and the above packages should be less than an hour depending on internet connection speed
+
+# Demo
+
+## Instructions to run on preprocessed data
+
+The notebooks can be started by running ``` jupyter lab ``` from the main directory and navigating to ./common/analysis_scripts_and_notebooks/ \
+- ELIC conformational modulation by lipid binding.ipynb carries out the ELIC modulation calculations and generates related figures
+- GenMembraneFigures.ipynb carries out FEP analysis of the membrane-only systems 
+- GenProteinFigures.ipynb carries out FEP analysis of the protein systems 
+FEP analysis is carried out by either leveraging preprocessed csvs (pre fitted by BAR or an exponential estimator) or by re-reading the raw fepout files (provided). The notebooks use the preprocessed data by default and for purposes of demonstration.
+
+## Expected output 
+All pregenerated figures can be found in ./common/analysis_scripts_and_notebooks/Figures/
+
+## Expected demo run time
+The demo (with ```reread = False```) runs in a few minutes on a standard personal computer (including midrange laptops). \
+
+# Instructions for use:
+
+## Running analysis on the raw FEP data:
+
+If you wish to reanalyze the fepout data:
+1. open either GenMembraneFigures.ipynb or GenProteinFigures.ipynb 
+2. find the line that says ```reread = False``` 
+3. change that line to ```reread = True``` 
+
+** WARNING: ** reanalyzing the fepout data requires several gigabytes of RAM and can take ** up to two hours ** for all protein and membrane data depending on the available hardware
+
+## Data regeneration:
+
+Simulations can be rerun using relentlessFEP.py and the provided configuration files. Simulations require CPU-resident NAMD2.14. Run times will vary widely depending on compute resources. HPC is highly recommended.
+
 # File Structure:
+
 In directories with names of the form "POCE_34": "POCE" means the transformation is from PC to PE, "34" refers to the residue number of the lipid being transformed.
 ```
 .
