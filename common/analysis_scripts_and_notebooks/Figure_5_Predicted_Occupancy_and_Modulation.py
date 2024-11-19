@@ -1,11 +1,8 @@
 import numpy as np
-from scipy.interpolate import griddata
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from scipy import constants
-import pandas as pd
 from plotting_and_probabilities import mktable, logSpace, genLogProb, makeContourf, linSpace, getfAa, getpAa, make_3d_plot, plot_ternary_titration
-
 
 # Constants
 temperature = 303.15  # Kelvin
@@ -67,6 +64,3 @@ fPE = getfAa("PE", "PG", "PC", xPE, xPG, xPC, E5_ter, RT)
 
 fig, ax = plot_ternary_titration(lw, colormap, xPG, fig, fPC, fPG, fPE)
 plt.savefig("./Figures/ELIC5_PG_Titration_Ternary.pdf")
-
-
-
