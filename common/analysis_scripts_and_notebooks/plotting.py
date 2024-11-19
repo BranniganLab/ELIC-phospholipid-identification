@@ -4,6 +4,17 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 
 def make_3d_plot(xPG, xPE, data):
+    """
+    Create a 3D surface plot using the provided grid and data.
+
+    Parameters:
+    xPG (2D array): Grid values for the X-axis.
+    xPE (2D array): Grid values for the Y-axis.
+    data (2D array): Z-axis values for the surface plot.
+
+    Returns:
+    tuple: A tuple containing the figure and 3D axes objects.
+    """
     fig = plt.figure()
     ax = plt.axes(projection="3d")
     ax.plot_surface(xPG, xPE, data)
@@ -11,10 +22,28 @@ def make_3d_plot(xPG, xPE, data):
     ax.set_ylabel("PE")
     ax.set_zlabel("log(E5) conformation")
     ax.set_title("3D contour")
-    return fig
+    return fig, ax
 
 
 def plot_ternary_titration(lw, colormap, xPG, fig, fPC, fPG, fPE):
+    """
+    Create a titration plot to visualize the fraction of sites occupied by 
+    different components (PC, PG, PE) as a function of xPG using Matplotlib.
+
+    Parameters:
+    lw (int): Line width for the plot lines.
+    colormap (dict): A dictionary mapping component names ("PC", "PG", "PE") 
+                     to their respective colors.
+    xPG (list or array): X-values representing the PG component.
+    fig (matplotlib.figure.Figure): A Matplotlib figure object.
+    fPC (list or array): Y-values for the PC component.
+    fPG (list or array): Y-values for the PG component.
+    fPE (list or array): Y-values for the PE component.
+
+    Returns:
+    tuple: A tuple containing the Matplotlib fig and ax objects, representing 
+           the figure and axis of the plot.
+    """
     font = {"size": 20}
     mpl.rc("font", **font)
     fig, ax = plt.subplots()
@@ -37,6 +66,23 @@ def plot_ternary_titration(lw, colormap, xPG, fig, fPC, fPG, fPE):
 def makeContourf(
     xPG, xPE, data, xmin=1e-9, xmax=1, log=True, cmap="jet", vmin=-8, vmax=8
 ):
+    """
+    Create a filled contour plot using the provided data and axis ranges.
+
+    Parameters:
+    xPG (array-like): 1D array representing the x-axis values for the contour plot.
+    xPE (array-like): 1D array representing the y-axis values for the contour plot.
+    data (array-like): 2D array of data values to be plotted.
+    xmin (float, optional): Minimum value for both x and y axes. Default is 1e-9.
+    xmax (float, optional): Maximum value for both x and y axes. Default is 1.
+    log (bool, optional): Whether to use logarithmic scales. Default is True.
+    cmap (str, optional): Colormap for the contour plot. Default is "jet".
+    vmin (int, optional): Minimum value for the color bar. Default is -8.
+    vmax (int, optional): Maximum value for the color bar. Default is 8.
+
+    Returns:
+    tuple: A tuple containing the figure (fig) and axis (ax) objects for further customization or display.
+    """
 
     fig, ax = plt.subplots()
 
@@ -85,6 +131,19 @@ def makeContourf(
 
 
 def addArrow(x, y, ax, direction, log):
+    """
+    Add an arrow marker to a matplotlib axis at specified coordinates.
+
+    Parameters:
+    x (float): The x-coordinate for the arrow placement.
+    y (float): The y-coordinate for the arrow placement.
+    ax (matplotlib.axes.Axes): The axis object where the arrow is drawn.
+    direction (str): The direction of the arrow, can be "up", "down", "left", or "right".
+    log (bool): Indicates if the plot uses a logarithmic scale.
+
+    Raises:
+    Exception: If an unrecognized direction is provided.
+    """
     headSize = 70
     lineSize = 70
     lineWidth = 3
