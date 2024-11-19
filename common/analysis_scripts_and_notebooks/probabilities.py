@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 
+
 def getRelProb(alpha, beta, xa, xb, stateTable, RT):
     """
     Calculate the relative site occupancy probability using the given parameters.
@@ -83,21 +84,32 @@ def getfAa(alpha, beta, gamma, xa, xb, xg, stateTable, RT):
 
     return fAa
 def read_tables(fname, reference="PE"):
-    full_table = pd.read_csv(fname, index_col=[0])
+    with open(fname) as f:
+        lines = f.read().split('\n')
+
+    means_dict = {}
+    for line in lines[:-1]:
+        key = line.split('.')[0]
+        value = float(line.split(' ')[-2])
+        means_dict[key] = value
+
     if reference=='PE':
-        WT_ter = use_PE_reference(full_table, 'WT')
-        E5_ter = use_PE_reference(full_table, 'E5')
+        WT_ter = use_PE_reference(means_dict, 'WT')
+        E5_ter = use_PE_reference(means_dict, 'E5')
     else:
         raise NotImplementedError("Other references not implemented. Only reference PE.")
     return WT_ter,E5_ter
 
-def use_PE_reference(full_table, state):
-    PG_PE = full_table.loc[state].query("mixture=='ternary' & frm=='PG' & to=='PE'").iloc[0].loc['dG']
-    PE_PC = full_table.loc[state].query("mixture=='ternary' & frm=='PE' & to=='PC'").iloc[0].loc['dG']
-    ternary = mktable(PCtoPG=-PG_PE - PE_PC,
-                    PGtoPE=PG_PE,
+def use_PE_reference(full_table:dict, state:str):
+    PE_PG = np.ceil(full_table[f'{state}_PEPG']-full_table['bulk_PEPG'])
+    PE_PC = np.ceil(full_table[f'{state}_PEPC']+full_table['bulk_PCPE'])
+    print(f"{state} PG to PE: "+str(-PE_PG))
+    print(f"{state} PE to PC: "+str(PE_PC))
+    ternary = mktable(PCtoPG=PE_PG - PE_PC,
+                    PGtoPE=-PE_PG,
                     PEtoPC=PE_PC)
     return ternary
+
 
 def mktable(PCtoPG, PGtoPE, PEtoPC):
     """
@@ -115,9 +127,9 @@ def mktable(PCtoPG, PGtoPE, PEtoPC):
     pandas.DataFrame: A DataFrame representing the transition table with specified and symmetric transition values.
     """
     data = pd.DataFrame(0, index=["PC", "PG", "PE"], columns=["PC", "PG", "PE"])
-    data.loc["PC", "PG"] = PCtoPG
-    data.loc["PE", "PC"] = PEtoPC
-    data.loc["PG", "PE"] = PGtoPE
+    data.loc["PC", "PG"] = int(PCtoPG)
+    data.loc["PE", "PC"] = int(PEtoPC)
+    data.loc["PG", "PE"] = int(PGtoPE)
 
     data.loc["PG", "PC"] = -data.loc["PC", "PG"]
     data.loc["PC", "PE"] = -data.loc["PE", "PC"]
