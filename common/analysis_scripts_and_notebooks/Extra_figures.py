@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 from scipy import constants
 import pandas as pd
-from plotting_and_probabilities import mktable, logSpace, genLogProb, makeContourf, linSpace, getfAa, getpAa, make_3d_plot, plot_ternary_titration
+from common.analysis_scripts_and_notebooks.probabilities import mktable, logSpace, genLogProb, makeContourf, linSpace, getfAa, getpAa, make_3d_plot, plot_ternary_titration
 
 
 # Constants
