@@ -1,4 +1,12 @@
 # Common Files
+
+## To recreate the panels for figure 5 of the NatComms paper:
+1. Install the latest version of safep: `pip install git+git@github.com:BranniganLab/safep.git`
+2. Clone this repository
+3. Navigate to the analysis directory: `cd common/analysis_scripts_and_notebooks`
+4. Run the provided bash script `make_figure5_panels.sh`
+5. The panels will be saved to the Figures directory
+
 ## Contents
 ```
 ├── analysis_scripts_and_notebooks
