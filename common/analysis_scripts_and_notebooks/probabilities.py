@@ -1,8 +1,5 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-
 
 def getRelProb(alpha, beta, xa, xb, stateTable, RT):
     with np.errstate(divide="ignore"):

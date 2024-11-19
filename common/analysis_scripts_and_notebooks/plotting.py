@@ -1,3 +1,8 @@
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+
 def make_3d_plot(xPG, xPE, data):
     fig = plt.figure()
     ax = plt.axes(projection="3d")
