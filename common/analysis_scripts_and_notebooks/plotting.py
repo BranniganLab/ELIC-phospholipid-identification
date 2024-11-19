@@ -26,7 +26,7 @@ def make_3d_plot(xPG, xPE, data):
     return fig, ax
 
 
-def plot_ternary_titration(lw, colormap, xPG, fig, fPC, fPG, fPE):
+def plot_ternary_titration(lw, colormap, xPG, fig, fPC, fPG, fPE, figwidth=5, figheight=4):
     """
     Create a titration plot to visualize the fraction of sites occupied by 
     different components (PC, PG, PE) as a function of xPG using Matplotlib.
@@ -57,7 +57,7 @@ def plot_ternary_titration(lw, colormap, xPG, fig, fPC, fPG, fPE):
 
     ax.legend()
     ax.set_xscale("log")
-    fig.set_size_inches(5, 4)
+    fig.set_size_inches(figwidth, figheight)
     fig.subplots_adjust(bottom=0.25, left=0.25)
     ax.set_xticks([1e-6, 1e-3, 1])
 
