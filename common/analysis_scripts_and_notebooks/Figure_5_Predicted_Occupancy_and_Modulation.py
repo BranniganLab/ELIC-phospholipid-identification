@@ -2,13 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from scipy import constants
-from common.analysis_scripts_and_notebooks.probabilities import (
+from probabilities import (
     mktable,
     logSpace,
     genLogProb,
     getfAa,
 )
-
 from plotting import makeContourf, plot_ternary_titration
 
 # Constants
@@ -24,7 +23,10 @@ colormap = {
     "WT": "#D14646",
     "E5": "#53A2BE",
 }
-
+font = {"size": 7}
+mpl.rc("font", **font)
+mpl.rcParams["font.sans-serif"] = "Arial"
+mpl.rcParams["font.family"] = "sans-serif"
 
 # All data:
 # Using a PE reference
@@ -33,13 +35,9 @@ E5_bin = mktable(PCtoPG=-6 - 4, PGtoPE=6, PEtoPC=4)
 WT_ter = mktable(PCtoPG=-4 - 2, PGtoPE=2, PEtoPC=4)
 E5_ter = mktable(PCtoPG=-6 - 2, PGtoPE=6, PEtoPC=2)
 
-font = {"size": 7}
-mpl.rc("font", **font)
-mpl.rcParams["font.sans-serif"] = "Arial"
-mpl.rcParams["font.family"] = "sans-serif"
 
-
-xPC, xPG, xPE = logSpace(-6, 0, 1000)  # e^-9 to e^0, 1000 steps
+# Plot modulation heatmap
+xPC, xPG, xPE = logSpace(-6, 0, 1000)
 data = genLogProb(E5_ter, WT_ter, RT, xPC, xPG, xPE)
 fig, ax = makeContourf(
     xPG, xPE, data, xmin=1e-6, log=True, cmap=conformationCMAP, vmin=-4, vmax=4
@@ -47,7 +45,7 @@ fig, ax = makeContourf(
 plt.savefig("./Figures/logloglog_pE5.pdf")
 
 
-# xPG = np.linspace(0, 1, 1000)
+# Plot WT ternary titration
 xPG = np.logspace(-6, 0, 100)
 xPX = 1 - xPG
 xPC = xPX * 2 / 3
@@ -61,6 +59,7 @@ fig, ax = plot_ternary_titration(lw, colormap, xPG, fig, fPC, fPG, fPE)
 plt.savefig("./Figures/WT_PG_Titration_Ternary.pdf")
 
 
+# Plot ELIC5 ternary titration
 xPX = 1 - xPG
 xPC = xPX * 2 / 3
 xPE = xPX / 3
