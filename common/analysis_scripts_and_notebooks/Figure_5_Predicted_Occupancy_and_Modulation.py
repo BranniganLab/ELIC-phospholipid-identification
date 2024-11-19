@@ -2,7 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from scipy import constants
-from plotting_and_probabilities import mktable, logSpace, genLogProb, makeContourf, linSpace, getfAa, getpAa, make_3d_plot, plot_ternary_titration
+from plotting_and_probabilities import (
+    mktable,
+    logSpace,
+    genLogProb,
+    getfAa,
+)
+
+from plotting import makeContourf, plot_ternary_titration
 
 # Constants
 temperature = 303.15  # Kelvin
