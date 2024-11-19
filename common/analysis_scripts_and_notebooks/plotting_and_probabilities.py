@@ -24,14 +24,14 @@ def plot_ternary_titration(lw, colormap, xPG, fig, fPC, fPG, fPE):
     ax.plot(xPG, fPG, label="PG", color=colormap["PG"], linewidth=lw)
     ax.plot(xPG, fPE, label="PE", color=colormap["PE"], linewidth=lw)
 
-    ax.xlabel(r"$x_{PG}$")
-    ax.ylabel("Fraction of Sites Occupied")
+    ax.set_xlabel(r"$x_{PG}$")
+    ax.set_ylabel("Fraction of Sites Occupied")
 
     ax.legend(loc="center left")
-    ax.xscale("log")
+    ax.set_xscale("log")
     fig.set_size_inches(2.5, 2)
     fig.subplots_adjust(bottom=0.25, left=0.25)
-    ax.xticks([1e-6, 1e-3, 1])
+    ax.set_xticks([1e-6, 1e-3, 1])
 
     return fig, ax
 
