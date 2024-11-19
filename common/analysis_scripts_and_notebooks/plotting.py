@@ -1,7 +1,8 @@
 
-import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 def make_3d_plot(xPG, xPE, data):
     """
@@ -54,9 +55,9 @@ def plot_ternary_titration(lw, colormap, xPG, fig, fPC, fPG, fPE):
     ax.set_xlabel(r"$x_{PG}$")
     ax.set_ylabel("Fraction of Sites Occupied")
 
-    ax.legend(loc="center left")
+    ax.legend()
     ax.set_xscale("log")
-    fig.set_size_inches(2.5, 2)
+    fig.set_size_inches(5, 4)
     fig.subplots_adjust(bottom=0.25, left=0.25)
     ax.set_xticks([1e-6, 1e-3, 1])
 
