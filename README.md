@@ -15,10 +15,12 @@ doi: https://doi.org/10.1101/2022.06.07.494883
 
 ## To recreate the panels for figure 5 of the NatComms paper:
 1. Install the latest (alpha) version of safep: `pip install git+https://github.com/BranniganLab/safep.git@52-afep-parse-is-outdated` 
-2. Clone this repository
-3. Navigate to the analysis directory: `cd common/analysis_scripts_and_notebooks`
-4. Run the provided bash script `make_figure5_panels.sh`
-5. The panels will be saved to the Figures directory
+2. Clone this repository: `git clone https://github.com/BranniganLab/ELIC-phospholipid-identification.git`
+3. Enter the new directory `cd ELIC-phospholipid-identification`
+4. Checkout the fair compliance branch (beta): `git checkout 3-fair-compliance`
+5. Navigate to the analysis directory: `cd common/analysis_scripts_and_notebooks`
+6. Run the provided bash script `make_figure5_panels.sh`. 
+7. The panels will be saved to the Figures directory and will be named "ELIC_5_PG_Titration_Ternary.pdf", "logloglog_pE5.pdf", and "WT_PG_Titration_ternary.pdf"
 
 # System Requirements
 
