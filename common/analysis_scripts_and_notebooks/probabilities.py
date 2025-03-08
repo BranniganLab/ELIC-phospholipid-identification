@@ -21,7 +21,7 @@ def getRelProb(alpha, beta, xa, xb, stateTable, RT):
     Returns:
     float: The calculated relative probability.
     """
-    with np.errstate(divide="ignore"):
+    with np.errstate(divide="ignore", invalid="ignore"):
         prob = (xa / xb) * np.exp(-stateTable.loc[beta, alpha] / RT)
 
     return prob
