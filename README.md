@@ -13,14 +13,6 @@ doi: https://doi.org/10.1101/2022.06.07.494883
 - Parameter and topology files
 - NAMD FEP outputs for each system (not shown below for brevity)
 
-## To recreate the panels for figure 5 of the NatComms paper:
-1. Install the latest (alpha) version of safep: `pip install git+https://github.com/BranniganLab/safep.git@52-afep-parse-is-outdated` 
-2. Clone this repository: `git clone https://github.com/BranniganLab/ELIC-phospholipid-identification.git`
-3. Enter the new directory `cd ELIC-phospholipid-identification`
-4. Checkout the fair compliance branch (beta): `git checkout 3-fair-compliance`
-5. Navigate to the analysis directory: `cd common/analysis_scripts_and_notebooks`
-6. Run the provided bash script `make_figure5_panels.sh`. 
-7. The panels will be saved to the Figures directory and will be named "ELIC_5_PG_Titration_Ternary.pdf", "logloglog_pE5.pdf", and "WT_PG_Titration_ternary.pdf"
 
 # System Requirements
 
@@ -106,6 +98,15 @@ The membrane and protein-specific figures are regenerated easily by their respec
 The data in the cell starting ```#All data``` are the relative free energies of binding (in kcal/mol) from POPE to each of the other two lipids. These data are taken directly from the output of the other two notebooks (or, more conveniently, from table 2).  
 
 See the methods of the main text for simulation details.
+
+## To recreate the panels for figure 5 of the NatComms paper:
+1. Install the latest (alpha) version of safep: `pip install git+https://github.com/BranniganLab/safep.git@52-afep-parse-is-outdated` 
+2. Clone this repository: `git clone https://github.com/BranniganLab/ELIC-phospholipid-identification.git`
+3. Enter the new directory `cd ELIC-phospholipid-identification`
+4. Checkout the fair compliance branch (beta): `git checkout 3-fair-compliance`
+5. Navigate to the analysis directory: `cd common/analysis_scripts_and_notebooks`
+6. Run the provided bash script `make_figure5_panels.sh`. 
+7. The panels will be saved to the Figures directory and will be named "ELIC_5_PG_Titration_Ternary.pdf", "logloglog_pE5.pdf", and "WT_PG_Titration_ternary.pdf"
 
 # File Structure:
 
