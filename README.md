@@ -13,6 +13,13 @@ doi: https://doi.org/10.1101/2022.06.07.494883
 - Parameter and topology files
 - NAMD FEP outputs for each system (not shown below for brevity)
 
+## To recreate the panels for figure 5 of the NatComms paper:
+1. Install the latest (alpha) version of safep: `pip install git+https://github.com/BranniganLab/safep.git@52-afep-parse-is-outdated` 
+2. Clone this repository
+3. Navigate to the analysis directory: `cd common/analysis_scripts_and_notebooks`
+4. Run the provided bash script `make_figure5_panels.sh`
+5. The panels will be saved to the Figures directory
+
 # System Requirements
 
 ## Operating System
