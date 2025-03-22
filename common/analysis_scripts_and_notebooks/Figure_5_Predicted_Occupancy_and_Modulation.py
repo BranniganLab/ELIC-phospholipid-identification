@@ -25,7 +25,6 @@ colormap = {
 }
 font = {"size": 7}
 mpl.rc("font", **font)
-mpl.rcParams["font.sans-serif"] = "Arial"
 mpl.rcParams["font.family"] = "sans-serif"
 
 # All data:
